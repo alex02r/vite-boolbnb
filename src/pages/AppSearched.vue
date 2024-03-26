@@ -1,5 +1,5 @@
 <script>
-import store from '../store.js';
+import { store } from '../store.js';
 import axios from 'axios';
 export default {
     data() {
@@ -26,7 +26,7 @@ export default {
 </script>
 <template lang="">
     <div>
-        
+
     </div>
 </template>
 <style lang="">

@@ -1,6 +1,5 @@
 <!-- SEZIONE JS SCRIPT -->
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <!-- SEZIONE HTML -->

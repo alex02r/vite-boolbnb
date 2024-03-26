@@ -1,7 +1,13 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
+
+import Searchbar from '../components/Searchbar.vue';
+
 export default {
     name: 'Home',
+    components: {
+        Searchbar
+    }
 }
 </script>
 
@@ -13,6 +19,9 @@ export default {
             </div>
         </div>
         <hr>
+        <div class=container>
+            <Searchbar />
+        </div>
         <div class="container my-5"> 
             <div class="row"> 
                 <div class="col-6 mt-5 align-self-center mb-4">

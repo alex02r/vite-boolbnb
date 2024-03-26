@@ -1,5 +1,11 @@
-<script setup>
-
+<script>
+    export default{
+        data() {
+            return {
+                value: ''
+            }
+        },
+    }
 </script>
 
 <template>
@@ -10,7 +16,6 @@
     </div>
 
 </template>
-
 <style scoped>
 
     .search-container {
@@ -36,7 +41,5 @@
         cursor: pointer;
         height: 50px;
     }
-
-    
 
 </style>

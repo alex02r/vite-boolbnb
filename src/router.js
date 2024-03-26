@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import AppSearched from './pages/AppSearched.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -11,6 +12,11 @@ const router = createRouter({
                 component: AppHome
             }
         */
+       {
+            path: '/searched/:value',
+            name: 'Search apartments',
+            component: AppSearched
+       }
     ]
 })
 

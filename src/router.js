@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AppSearched from './pages/AppSearched.vue'
+import AppNotFound  from './pages/AppNotFound.vue'
 
 import AppHome from './pages/AppHome.vue'
 
@@ -16,7 +17,12 @@ const router = createRouter({
             path: '/searched/:value',
             name: 'Search apartments',
             component: AppSearched
-        }
+        },
+        {
+            path: '/:catchAll(.*)',
+            name: 'not-found',
+            component: AppNotFound
+        },
     ]
 })
 

@@ -1,10 +1,12 @@
 <!-- SEZIONE JS SCRIPT -->
 <script setup>
-
 </script>
 
 <!-- SEZIONE HTML -->
 <template>
+
+  <Seartchbar />
+
   <div>
     <div>
       <!-- ROUTER VIEW -->

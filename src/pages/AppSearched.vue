@@ -15,18 +15,16 @@ export default {
     },
     methods: {
         //funzione che esegue la ricerca degli partments
-        searchApartments(page_num){
+        searchApartments(){
             //eseguiamo la chimata API 
-            axios.get(`${store.baseUrl}/api/apartments/${this.$route.params.address}`, { params: { page: page_num } }).then(response => {
+            axios.get(`${store.baseUrl}/api/apartments/${this.$route.params.address}`).then(response => {
                 //controlliamo se ha restituito qualcosa
                 if (response.data.success) {
                     console.log(response.data.apartments);
                     //recupero i risultati
                     this.apartments = response.data.apartments.data
-                    this.currentPage = response.data.apartments.current_page;
-                    this.lastPage = response.data.apartments.last_page;
                 }else{
-                    console.log('non è stato trovato nulla');
+                    console.log(response.data.error);
                 }
             })
         }

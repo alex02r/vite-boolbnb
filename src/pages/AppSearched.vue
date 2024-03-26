@@ -7,14 +7,16 @@ export default {
             store
         }
     },
+    created(){
+        this.searchApartments();
+    },
     methods: {
         //funzione che esegue la ricerca degli partments
         searchApartments(){
-            let value = ''/* this.$router.params.value */
             //eseguiamo la chimata API 
-            axios.get(`${store.baseUrl}/search/${value}`).then(response => {
+            axios.get(`${store.baseUrl}/api/apartments/${this.$route.params.address}`).then(response => {
                 //controlliamo se ha restituito qualcosa
-                if (response.data.apartments) {
+                if (response.data.success) {
                     console.log(response.data.apartments);
                 }else{
                     console.log('non è stato trovato nulla');

@@ -4,18 +4,11 @@
 
 <!-- SEZIONE HTML -->
 <template>
-
-  <Seartchbar />
-
-  <div>
-    <div>
-      <!-- ROUTER VIEW -->
-      <router-view></router-view>
-    </div>
-  </div>
+  <!-- ROUTER VIEW -->
+  <router-view></router-view>
 </template>
 
 <!-- SEZIONE STYLE -->
-<style scoped>
+<style>
 
 </style>

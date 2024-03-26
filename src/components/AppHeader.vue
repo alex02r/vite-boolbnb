@@ -38,23 +38,23 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  li:hover {
+    background-color: rgb(213, 213, 213);
+    border-radius: 25px;
+  }
+
+  li:active {
+    color: black;
+  }
 }
 
 .logo {
   color: #F15B5D;
-}
-
-img {
-  width: 50px;
-  height: 50px;
-}
-
-li:hover {
-  background-color: rgb(213, 213, 213);
-  border-radius: 25px;
-}
-
-li:active {
-  color: black;
 }
 </style>

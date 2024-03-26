@@ -13,31 +13,27 @@ export default {
 
 <!-- SEZIONE HTML -->
 <template lang="">
-    <div>
-        <div class="container-fluid jumbo">
-            <div class="row justify-content-center">
-            </div>
+    <div class="container-fluid jumbo">
+        <div class="row justify-content-center">
         </div>
-        <hr>
-        <div class=container>
+    </div>
+    <hr>
+    <div class="container my-5"> 
+        <div class="row"> 
             <Searchbar />
-        </div>
-        <div class="container my-5"> 
-            <div class="row"> 
-                <div class="col-6 mt-5 align-self-center mb-4">
-                    <h3>Appartamenti</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda adipisci quibusdam aliquam, asperiores maiores, nobis, harum ad nesciunt perferendis beatae exercitationem molestias odio et quos nam fugit corporis voluptatum esse.</p>
-                </div>
-                <div class="col-6 mb-4">
-                    <a href="#" class="text-decoration-none"><img src="../../public/airbnb-img.jpg" alt="logo" width="600px"></a>
-                </div>
-                <div class="col-6 float-start mb-5">
-                    <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
-                </div>
-                <div class="col-6 align-self-center ps-5 mb-5">
-                    <h3>Contattaci</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim debitis natus recusandae quasi beatae aliquid totam consectetur ipsa consequatur, quos id, dolorem suscipit alias corrupti molestias sunt accusamus laboriosam!</p>
-                </div>
+            <div class="col-6 mt-5 align-self-center mb-4">
+                <h3>Appartamenti</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda adipisci quibusdam aliquam, asperiores maiores, nobis, harum ad nesciunt perferendis beatae exercitationem molestias odio et quos nam fugit corporis voluptatum esse.</p>
+            </div>
+            <div class="col-6 mb-4">
+                <a href="#" class="text-decoration-none"><img src="../../public/airbnb-img.jpg" alt="logo" width="600px"></a>
+            </div>
+            <div class="col-6 float-start mb-5">
+                <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
+            </div>
+            <div class="col-6 align-self-center ps-5 mb-5">
+                <h3>Contattaci</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim debitis natus recusandae quasi beatae aliquid totam consectetur ipsa consequatur, quos id, dolorem suscipit alias corrupti molestias sunt accusamus laboriosam!</p>
             </div>
         </div>
     </div>

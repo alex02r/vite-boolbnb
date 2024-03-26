@@ -41,7 +41,6 @@ export default {
 
 <!-- SEZIONE STYLE -->
 <style lang="scss" scoped>
-@use '../styles/generals.scss' as *;
 
 .jumbo {
     background-image: url('../../public/airbnb-home.png');

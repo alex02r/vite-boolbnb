@@ -1,21 +1,24 @@
-<!-- SEZIONE JS SCRIPT -->
-<script setup>
+<script>
+import AppHeader from './components/AppHeader.vue'
+
+
+export default {
+  components: {
+    AppHeader,
+
+  },
+  data() {
+    return {
+
+    }
+  },
+}
 </script>
 
-<!-- SEZIONE HTML -->
-<template>
-
-  <Seartchbar />
-
-  <div>
-    <div>
-      <!-- ROUTER VIEW -->
-      <router-view></router-view>
-    </div>
-  </div>
+<template lang="">
+  <AppHeader/>
+  <router-view></router-view>
 </template>
-
-<!-- SEZIONE STYLE -->
-<style scoped>
+<style lang="scss">
 
 </style>

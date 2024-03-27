@@ -10,19 +10,17 @@ export default {
         return {
             store,
             apartments: [],
+            search_address: '',
             currentPage: 1,
             lastPage: null
         }
-    },
-    created(){
-        this.searchApartments();
     },
     methods: {
         //funzione che esegue la ricerca degli partments
         async searchApartments(){
             try {
                 //eseguiamo la chimata API 
-                const { data } = await axios.get(`${store.baseUrl}/api/search`, { params:{ address: this.$route.params.address, distance:20000 } });
+                const { data } = await axios.get(`${store.baseUrl}/api/search`, { params:{ address: this.search_address, distance:20000 } });
                 this.apartments = data.apartments
             } catch (error) {
                 console.error(error);
@@ -35,9 +33,14 @@ export default {
 <template lang="">
     <div class="container my-4">
         <div class="row justify-content-center">
-            <form @submit.prevent="searchApartments()">
-                
-            </form>
+            <div class="col-6">
+                <form @submit.prevent="searchApartments()">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
+                        <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
+                      </div>
+                </form>
+            </div>
         </div>
         <div class="row row-gap-4">
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>

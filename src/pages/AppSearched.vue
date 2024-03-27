@@ -10,35 +10,43 @@ export default {
         return {
             store,
             apartments: [],
+            search_address: '',
             currentPage: 1,
             lastPage: null
         }
     },
-    created(){
-        this.searchApartments();
-    },
     methods: {
         //funzione che esegue la ricerca degli partments
-        searchApartments(){
-            //eseguiamo la chimata API 
-            axios.get(`${store.baseUrl}/api/apartments/${this.$route.params.address}`).then(response => {
-                //controlliamo se ha restituito qualcosa
-                if (response.data.success) {
-                    console.log(response.data.apartments);
-                    //recupero i risultati
-                    this.apartments = response.data.apartments
-                }else{
-                    console.log(response.data.error);
-                }
-            })
+        async searchApartments(){
+            try {
+                //eseguiamo la chimata API 
+                const { data } = await axios.get(`${store.baseUrl}/api/search`, { params:{ address: this.search_address, distance:20000 } });
+                this.apartments = data.apartments
+            } catch (error) {
+                console.error(error);
+            }
+            
         }
     },
 }
 </script>
 <template lang="">
     <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <form @submit.prevent="searchApartments()">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
+                        <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
+                      </div>
+                </form>
+            </div>
+        </div>
         <div class="row row-gap-4">
-            <AppApartment v-for="(apartment, index) in apartments" :key="index" :data="apartment" ></AppApartment>
+            <div v-if="apartments.length == 0" class="col-12 text-center">
+                <h2>Inserire appartmenti sponsorizzati </h2>
+            </div>
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>
         </div>
     </div>
 <!-- paginazione 

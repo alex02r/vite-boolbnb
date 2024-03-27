@@ -43,6 +43,9 @@ export default {
             </div>
         </div>
         <div class="row row-gap-4">
+            <div v-if="apartments.length == 0" class="col-12 text-center">
+                <h2>Inserire appartmenti sponsorizzati </h2>
+            </div>
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>
         </div>
     </div>

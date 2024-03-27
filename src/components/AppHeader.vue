@@ -23,7 +23,7 @@ export default {
             
     <ul class="list-unstyled d-flex align-items-center fw-bold text-body-tertiary">
       <li class="m-2 p-2" v-for="item, index in store.menu" :key="index" @click="clickIndex=index" :class="clickIndex===index ? 'active' : ''">
-                    <!-- <router-link class="text-body-tertiary link-secondary link-underline-opacity-0" :to="{name: item.name}"> -->{{item.label}}<!-- </router-link> -->
+                    <router-link class="text-body-tertiary link-secondary link-underline-opacity-0" :to="{name: item.name}">{{item.label}}</router-link>
       </li> 
     </ul>
     <div>

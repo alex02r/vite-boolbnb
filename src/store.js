@@ -9,8 +9,8 @@ export const store = reactive({
             label: 'Home'
         },
         {
-            name: 'apartment',
-            label: 'Appartamenti'
+            name: 'search-apartments',
+            label: 'Cerca'
         },
     ]
 });

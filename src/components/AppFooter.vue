@@ -14,7 +14,7 @@ export default {
 <template lang="">
   <footer>
     <div class="container">
-        <div class="d-flex">
+        <div class="d-md-flex">
             <ul class="list-unstyled">
                 <li class="fw-bold">Assistenza</li>
                 <li>Centro Assistenza</li>

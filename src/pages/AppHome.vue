@@ -19,21 +19,21 @@ export default {
         </div>
     </div>
     <div class="container my-5"> 
-        <div class="row">
-            <div class="col-12 mb-5">
-                <p class="search"><Searchbar /></p>
+        <div class="row justify-content-center">
+            <div class="col-12 mb-5 align-self-center">
+                <p><Searchbar /></p>
             </div>
-            <div class="col-md-6 col-12 mt-5 align-self-center mb-4">
+            <div class="col-lg-6 col-12 mt-5 align-self-center mb-4">
                 <a href="#" class="text-decoration-none"><h3>Appartamenti</h3></a> 
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda adipisci quibusdam aliquam, asperiores maiores, nobis, harum ad nesciunt perferendis beatae exercitationem molestias odio et quos nam fugit corporis voluptatum esse.</p>
             </div>
-            <div class="col-md-6 col-12 mb-4">
+            <div class="col-lg-6 col-12 mb-4">
                 <a href="#" class="text-decoration-none"><img src="../../public/airbnb-img.jpg" alt="logo" width="600px"></a>
             </div>
-            <div class="col-md-6 col-12 float-md-start mb-5">
+            <div class="col-lg-6 col-12 float-lg-start mb-5">
                 <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
             </div>
-            <div class="col-md-6 col-12 align-self-center ps-5 mb-5">
+            <div class="col-lg-6 col-12 align-self-center ps-lg-5 mb-lg-5">
                 <a href="#" class="text-decoration-none"><h3>Contattaci</h3></a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim debitis natus recusandae quasi beatae aliquid totam consectetur ipsa consequatur, quos id, dolorem suscipit alias corrupti molestias sunt accusamus laboriosam!</p>
             </div>
@@ -64,10 +64,6 @@ export default {
 
 h3{
     color: #F15B5D;;
-}
-
-.search {
-    padding-left: 200px;
 }
 
 img{

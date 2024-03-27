@@ -1,16 +1,23 @@
-<script setup>
-
+<script>
+    export default{
+        data() {
+            return {
+                value_search: ' '
+            }
+        },
+    }
 </script>
 
 <template>
 
     <div class="search-container">
-        <input type="search" id="search" name="search" placeholder="Cerca..." class="form-control searchbar">
-        <button type="submit" onclick="" class="btn-searchbar">Cerca</button>
+        <input type="search" id="search" name="search" placeholder="Cerca..." v-model="value_search" class="form-control searchbar">
+        <router-link :to="{ name: 'search-apartments', params: { address: value_search } }" class="nav-link btn-searchbar">
+            Cerca
+        </router-link>
     </div>
 
 </template>
-
 <style scoped>
 
     .search-container {
@@ -36,7 +43,5 @@
         cursor: pointer;
         height: 50px;
     }
-
-    
 
 </style>

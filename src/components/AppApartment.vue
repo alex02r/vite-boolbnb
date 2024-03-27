@@ -1,6 +1,8 @@
 <script>
 export default {
-    
+    props:{
+        data: Object
+    }
 }
 </script>
 <template lang="">

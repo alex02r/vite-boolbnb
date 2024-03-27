@@ -12,7 +12,7 @@
 
     <div class="search-container">
         <input type="search" id="search" name="search" placeholder="Cerca..." v-model="value_search" class="form-control searchbar">
-        <router-link :to="{ name: 'search-apartments', params: { address: value_search} }" class="nav-link btn-searchbar">
+        <router-link :to="{ name: 'search-apartments', params: { address: value_search } }" class="nav-link btn-searchbar">
             Cerca
         </router-link>
     </div>

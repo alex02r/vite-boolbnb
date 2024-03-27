@@ -19,18 +19,15 @@ export default {
     },
     methods: {
         //funzione che esegue la ricerca degli partments
-        searchApartments(){
-            //eseguiamo la chimata API 
-            axios.get(`${store.baseUrl}/api/apartments/${this.$route.params.address}`).then(response => {
-                //controlliamo se ha restituito qualcosa
-                if (response.data.success) {
-                    console.log(response.data.apartments);
-                    //recupero i risultati
-                    this.apartments = response.data.apartments
-                }else{
-                    console.log(response.data.error);
-                }
-            })
+        async searchApartments(){
+            try {
+                //eseguiamo la chimata API 
+                const { data } = await axios.get(`${store.baseUrl}/api/search`, { params:{ address: this.$route.params.address, distance:20000 } });
+                this.apartments = data.apartments
+            } catch (error) {
+                console.error(error);
+            }
+            
         }
     },
 }
@@ -38,7 +35,7 @@ export default {
 <template lang="">
     <div class="container my-4">
         <div class="row row-gap-4">
-            <AppApartment v-for="(apartment, index) in apartments" :key="index" :data="apartment" ></AppApartment>
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>
         </div>
     </div>
 <!-- paginazione 

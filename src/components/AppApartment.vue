@@ -24,7 +24,7 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 cursor-pointer">
         <div class="app-header">
             <img :src="getImg(data.cover_img)" alt="" class="app-img">
             <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
@@ -40,6 +40,9 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
+    .cursor-pointer{
+        cursor: pointer;
+    }
     .app-header{
         position: relative;
         .app-img{
@@ -49,6 +52,15 @@ export default {
             position: absolute;
             top: 10px;
             left: 10px
+        }
+    }
+    .app-body{
+        margin: 0.5rem 0;
+        h6{
+            line-height: 0.8rem;
+        }
+        .text-secondary{
+            font-weight: 400;
         }
     }
 </style>

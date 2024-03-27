@@ -21,5 +21,5 @@ export default {
   <AppFooter/>
 </template>
 <style lang="scss">
-
+  @use './styles/generals.scss';
 </style>

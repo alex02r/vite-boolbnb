@@ -1,7 +1,11 @@
 <script>
+import AppApartment from '../components/AppApartment.vue';
 import { store } from '../store.js';
 import axios from 'axios';
 export default {
+    component:{
+        AppApartment
+    },
     data() {
         return {
             store,

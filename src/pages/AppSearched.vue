@@ -3,7 +3,7 @@ import AppApartment from '../components/AppApartment.vue';
 import { store } from '../store.js';
 import axios from 'axios';
 export default {
-    component:{
+    components:{
         AppApartment
     },
     data() {
@@ -36,11 +36,12 @@ export default {
 }
 </script>
 <template lang="">
-    <div v-for="(apartment, index) in apartments" :key="index">
-        <div v-if="apartment.show">
-            <h5>{{ apartment.title }}</h5>
+    <div class="container">
+        <div class="row">
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :data="apartment" ></AppApartment>
         </div>
     </div>
+<!-- paginazione 
     <div class="row"> 
         <div class="col-12">
             <ul class="pagination d-flex justify-content-center">
@@ -49,6 +50,7 @@ export default {
             </ul>
         </div>
     </div>
+-->
 </template>
 <style lang="">
     

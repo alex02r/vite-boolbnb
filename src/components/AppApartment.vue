@@ -2,7 +2,7 @@
 import { store } from '../store';
 export default {
     props:{
-        data: Object
+        app: Object
     },
     data() {
         return {
@@ -26,13 +26,13 @@ export default {
 <template lang="">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 cursor-pointer">
         <div class="app-header">
-            <img :src="getImg(data.cover_img)" alt="" class="app-img">
+            <img :src="getImg(app.cover_img)" alt="" class="app-img">
             <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">
-            <h6 class="">{{ data.title }}</h6>
-            <h6 class="text-secondary">{{ data.address }}</h6>
+            <h6 class="">{{ app.title }}</h6>
+            <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
                 <i class="fas fa-bed"></i> 2
             </div>

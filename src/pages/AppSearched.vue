@@ -34,6 +34,11 @@ export default {
 </script>
 <template lang="">
     <div class="container my-4">
+        <div class="row justify-content-center">
+            <form @submit.prevent="searchApartments()">
+                
+            </form>
+        </div>
         <div class="row row-gap-4">
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>
         </div>

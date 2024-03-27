@@ -36,8 +36,8 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container">
-        <div class="row">
+    <div class="container my-4">
+        <div class="row row-gap-4">
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :data="apartment" ></AppApartment>
         </div>
     </div>

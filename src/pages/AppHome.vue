@@ -23,8 +23,12 @@ export default {
             <div class="col-12 mb-5 align-self-center">
                 <p><Searchbar /></p>
             </div>
+            <div class="col-12 text-center mb-5">
+                <h1 class="fw-bold">Appartamenti in primo piano</h1>
+                <p>Visualizzazione degli appartamenti sponsorizzati</p>
+            </div>
             <div class="col-lg-6 col-12 align-self-center">
-                <a href="#" class="text-decoration-none"><h3>Appartamenti</h3></a> 
+                <a href="#" class="text-decoration-none"><h3>Visualizza tutti gli appartamenti</h3></a> 
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda adipisci quibusdam aliquam, asperiores maiores, nobis, harum ad nesciunt perferendis beatae exercitationem molestias odio et quos nam fugit corporis voluptatum esse.</p>
             </div>
             <div class="col-lg-6 col-12 mb-4">
@@ -65,7 +69,8 @@ export default {
     }
 }
 
-h3{
+h3,
+h1{
     color: #F15B5D;;
 }
 

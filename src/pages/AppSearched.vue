@@ -22,7 +22,7 @@ export default {
                 if (response.data.success) {
                     console.log(response.data.apartments);
                     //recupero i risultati
-                    this.apartments = response.data.apartments.data
+                    this.apartments = response.data.apartments
                 }else{
                     console.log(response.data.error);
                 }

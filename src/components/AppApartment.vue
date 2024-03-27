@@ -24,10 +24,12 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <img :src="getImg(data.cover_img)" alt="" class="app-img">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="app-header">
+            <img :src="getImg(data.cover_img)" alt="" class="app-img">
+            <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
+        </div>
         <!-- badge per la sponsorizzazione -->
-        <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
         <div class="app-body">
             <h6 class="">{{ data.title }}</h6>
             <h6 class="text-secondary">{{ data.address }}</h6>
@@ -38,5 +40,15 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
-    
+    .app-header{
+        position: relative;
+        .app-img{
+            border-radius: 0.5rem
+        }
+        .badge{
+            position: absolute;
+            top: 10px;
+            left: 10px
+        }
+    }
 </style>

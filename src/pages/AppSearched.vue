@@ -44,7 +44,17 @@ export default {
         async searchApartments(){
             try {
                 //eseguiamo la chimata API 
-                const { data } = await axios.get(`${store.baseUrl}/api/search`, { params:{ address: this.search_address, distance:20000 } });
+                const { data } = await axios.get(`${store.baseUrl}/api/search`, 
+                { 
+                    params:{ 
+                        address: this.search_address, 
+                        distance:this.distance*1000,
+                        rooms: this.rooms,
+                        beds: this.beds,
+                        bathrooms: this.bathrooms,
+                        services: this.services, 
+                    } 
+                });
                 this.apartments = data.apartments
             } catch (error) {
                 console.error(error);

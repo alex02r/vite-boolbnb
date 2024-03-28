@@ -14,6 +14,7 @@ export default {
             distance: 20,
             rooms: null,
             beds: null,
+            bathrooms: null,
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -95,6 +96,20 @@ export default {
                                             <button class="btn rounded-pill px-4" :class="beds == 6 ? 'btn-dark' : 'btn-light'" @click="beds = 6">6</button>
                                             <button class="btn rounded-pill px-4" :class="beds == 7 ? 'btn-dark' : 'btn-light'" @click="beds = 7">7</button>
                                             <button class="btn rounded-pill px-4" :class="beds == 8 ? 'btn-dark' : 'btn-light'" @click="beds = 8">8+</button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5>Bagni</h5>
+                                        <div class="d-flex gap-2 overflow-x-auto">
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == null ? 'btn-dark' : 'btn-light'" @click="bathrooms = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 1 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 1">1</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 2 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 2">2</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 3 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 3">3</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 4 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 4">4</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 5 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 5">5</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 6 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 6">6</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 7 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 7">7</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == 8 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 8">8+</button>
                                         </div>
                                     </div>
                                 </div>

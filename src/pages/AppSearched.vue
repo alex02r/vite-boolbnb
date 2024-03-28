@@ -15,6 +15,25 @@ export default {
             rooms: null,
             beds: null,
             bathrooms: null,
+            services: [],
+            list_services: [
+                {
+                    name: 'wifi',
+                    id: 1
+                },
+                {
+                    name: 'phone',
+                    id: 2
+                },
+                {
+                    name: 'lavatrice',
+                    id: 3
+                },
+                {
+                    name: 'Riscoldamento',
+                    id: 4
+                }
+            ],
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -111,6 +130,24 @@ export default {
                                             <button class="btn rounded-pill px-4" :class="bathrooms == 7 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 7">7</button>
                                             <button class="btn rounded-pill px-4" :class="bathrooms == 8 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 8">8+</button>
                                         </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- servizi -->
+                                <div class="col-12">
+                                    <h3>Servizi</h3>
+                                    <div class="mb-3">
+                                        <h5>Servizi principali</h5>
+                                        <div class="form-check">
+                                            <div class="row row-gap-2">
+                                                <div class="col-12 col-md-6" v-for="(service, index) in list_services" :key="index">
+                                                    <input class="form-check-input" type="checkbox" :value="service.id" name="checks[]" :id="service.name" v-model="services">
+                                                    <label class="form-check-label" :for="service.name">
+                                                      {{service.name}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

@@ -37,7 +37,7 @@ export default {
             <div class="col-12 col-md-6">
                 <form @submit.prevent="searchApartments()">
                     <div class="input-group mb-4">
-                        <button type="button" class="btn btn-light border" @click="showModal = true"> <i class="fas fa-sliders"></i> filtri</button>
+                        <button type="button" class="btn btn-light border" @click="showModal = !showModal"> <i class="fas fa-sliders"></i> filtri</button>
                         <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
                     </div>
@@ -61,12 +61,35 @@ export default {
         </div>
     </div>
 -->
-<div class="" v-if="showModal">
-    <button class="btn btn-danger" @click="showModal = false">close</button>
-    <h1>ciao</h1>
-  </div>
+<div class="filters" v-if="showModal">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-2">
+                <button class="btn btn-light" @click="showModal = !showModal"><i class="fas fa-x"></i></button>
+            </div>
+            <div class="col-6">
+                <h5>Filtri</h5>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>Filtri per il raggio</h2>
+            </div>
+            <div class="col-4">
+                Filtri per ...
+            </div>
+            <div class="col-4">
+                Filtri per ...
+            </div>
+            <div class="col-4">
+                Filtri per ...
+            </div>
+        </div>
 
+    </div>
+</div>
 </template>
 <style lang="scss" scoped>
-
+    
 </style>

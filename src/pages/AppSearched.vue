@@ -11,7 +11,7 @@ export default {
             store,
             apartments: [],
             search_address: '',
-            distance: 2,
+            distance: 20,
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -45,6 +45,7 @@ export default {
 
                     <div class="filters border rounded" v-if="showModal">
                         <div class="container">
+                            <!-- header filtri -->
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-2">
                                     <button class="btn btn-light" @click="showModal = !showModal"><i class="fas fa-x"></i></button>
@@ -54,25 +55,16 @@ export default {
                                 </div>
                             </div>
                             <hr>
+                            <!-- body filtri -->
                             <div class="row">
-                                <div class="col-12">
-                                </div>
                                 <div class="col-12 col-md-6">
-                                    <h3>Filtri per il raggio</h3>
-                                    <label for="distance" class="form-label">Example range {{ distance }}</label>
+                                    <h3>Filtra il raggio dei km</h3>
+                                    <label for="distance" class="form-label">Raggio: {{ distance }}km</label>
                                     <input type="range" class="form-range" min="0" max="40" step="1" id="distance" name="distance" v-model="distance">
                                 </div>
-                                <div class="col-6">
-
+                                <div class="col-12 col-md-6">
                                 </div>
-                                <div class="col-4">
-                                    Filtri per Numero minimo di stanze
-                                </div>
-                                <div class="col-4">
-                                    Filtri per numero minimo di posti letto
-                                </div>
-                                <div class="col-4">
-                                    Filtri per la presenza di uno o più servizi
+                                <div class="col-12">
                                 </div>
                             </div>
                     

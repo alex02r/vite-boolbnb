@@ -13,6 +13,7 @@ export default {
             search_address: '',
             distance: 20,
             rooms: null,
+            beds: null,
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -68,7 +69,7 @@ export default {
                                 <hr>
                                 <div class="col-12">
                                     <h3>Stanze e letti</h3>
-                                    <div class="">
+                                    <div class="mb-3">
                                         <h5>Camere</h5>
                                         <div class="d-flex gap-2 overflow-x-auto">
                                             <button class="btn rounded-pill px-4" :class="rooms == null ? 'btn-dark' : 'btn-light'" @click="rooms = null">qualsiasi</button>
@@ -80,6 +81,20 @@ export default {
                                             <button class="btn rounded-pill px-4" :class="rooms == 6 ? 'btn-dark' : 'btn-light'" @click="rooms = 6">6</button>
                                             <button class="btn rounded-pill px-4" :class="rooms == 7 ? 'btn-dark' : 'btn-light'" @click="rooms = 7">7</button>
                                             <button class="btn rounded-pill px-4" :class="rooms == 8 ? 'btn-dark' : 'btn-light'" @click="rooms = 8">8+</button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5>Letti</h5>
+                                        <div class="d-flex gap-2 overflow-x-auto">
+                                            <button class="btn rounded-pill px-4" :class="beds == null ? 'btn-dark' : 'btn-light'" @click="beds = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 1 ? 'btn-dark' : 'btn-light'" @click="beds = 1">1</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 2 ? 'btn-dark' : 'btn-light'" @click="beds = 2">2</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 3 ? 'btn-dark' : 'btn-light'" @click="beds = 3">3</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 4 ? 'btn-dark' : 'btn-light'" @click="beds = 4">4</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 5 ? 'btn-dark' : 'btn-light'" @click="beds = 5">5</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 6 ? 'btn-dark' : 'btn-light'" @click="beds = 6">6</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 7 ? 'btn-dark' : 'btn-light'" @click="beds = 7">7</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == 8 ? 'btn-dark' : 'btn-light'" @click="beds = 8">8+</button>
                                         </div>
                                     </div>
                                 </div>

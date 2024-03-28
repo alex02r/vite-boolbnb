@@ -61,7 +61,7 @@ export default {
         </div>
     </div>
 -->
-<div class="filters" v-if="showModal">
+<div class="filters border rounded" v-if="showModal">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-2">
@@ -91,5 +91,14 @@ export default {
 </div>
 </template>
 <style lang="scss" scoped>
-    
+    .filters{
+        background-color: white;
+        position: absolute;
+        width: 40vw;
+        padding: 20px;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+    }
 </style>

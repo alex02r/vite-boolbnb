@@ -18,20 +18,40 @@ export default {
             services: [],
             list_services: [
                 {
-                    name: 'wifi',
+                    name: 'WiFi',
                     id: 1
                 },
                 {
-                    name: 'phone',
+                    name: 'Posto Macchina',
                     id: 2
                 },
                 {
-                    name: 'lavatrice',
+                    name: 'Piscina',
                     id: 3
                 },
                 {
-                    name: 'Riscoldamento',
+                    name: 'Portineria',
                     id: 4
+                },
+                {
+                    name: 'Sauna',
+                    id: 5
+                },
+                {
+                    name: 'Vista Mare',
+                    id: 6
+                },
+                {
+                    name: 'Tv',
+                    id: 7
+                },
+                {
+                    name: 'Cucina',
+                    id: 8
+                },
+                {
+                    name: 'Lavatrice',
+                    id: 9
                 }
             ],
             currentPage: 1,

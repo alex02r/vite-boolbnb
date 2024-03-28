@@ -48,7 +48,7 @@ export default {
                 { 
                     params:{ 
                         address: this.search_address, 
-                        distance:this.distance*1000,
+                        distance:this.distance,
                         rooms: this.rooms,
                         beds: this.beds,
                         bathrooms: this.bathrooms,

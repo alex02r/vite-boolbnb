@@ -11,6 +11,7 @@ export default {
             store,
             apartments: [],
             search_address: '',
+            distance: 2,
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -41,6 +42,42 @@ export default {
                         <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
                     </div>
+
+                    <div class="filters border rounded" v-if="showModal">
+                        <div class="container">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-2">
+                                    <button class="btn btn-light" @click="showModal = !showModal"><i class="fas fa-x"></i></button>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Filtri</h5>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <h3>Filtri per il raggio</h3>
+                                    <label for="distance" class="form-label">Example range {{ distance }}</label>
+                                    <input type="range" class="form-range" min="0" max="40" step="1" id="distance" name="distance" v-model="distance">
+                                </div>
+                                <div class="col-6">
+
+                                </div>
+                                <div class="col-4">
+                                    Filtri per Numero minimo di stanze
+                                </div>
+                                <div class="col-4">
+                                    Filtri per numero minimo di posti letto
+                                </div>
+                                <div class="col-4">
+                                    Filtri per la presenza di uno o più servizi
+                                </div>
+                            </div>
+                    
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -61,41 +98,13 @@ export default {
         </div>
     </div>
 -->
-<div class="filters border rounded" v-if="showModal">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-2">
-                <button class="btn btn-light" @click="showModal = !showModal"><i class="fas fa-x"></i></button>
-            </div>
-            <div class="col-6">
-                <h5>Filtri</h5>
-            </div>
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <h2>Filtri per il raggio</h2>
-            </div>
-            <div class="col-4">
-                Filtri per ...
-            </div>
-            <div class="col-4">
-                Filtri per ...
-            </div>
-            <div class="col-4">
-                Filtri per ...
-            </div>
-        </div>
-
-    </div>
-</div>
 </template>
 <style lang="scss" scoped>
     .filters{
         background-color: white;
         position: absolute;
-        width: 40vw;
         padding: 20px;
+        width: 60vw;
         top: 20%;
         left: 50%;
         transform: translateX(-50%);

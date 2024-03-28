@@ -12,6 +12,7 @@ export default {
             apartments: [],
             search_address: '',
             distance: 20,
+            rooms: null,
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -64,7 +65,23 @@ export default {
                                 </div>
                                 <div class="col-12 col-md-6">
                                 </div>
+                                <hr>
                                 <div class="col-12">
+                                    <h3>Stanze e letti</h3>
+                                    <div class="">
+                                        <h5>Camere</h5>
+                                        <div class="d-flex gap-2 overflow-x-auto">
+                                            <button class="btn rounded-pill px-4" :class="rooms == null ? 'btn-dark' : 'btn-light'" @click="rooms = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 1 ? 'btn-dark' : 'btn-light'" @click="rooms = 1">1</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 2 ? 'btn-dark' : 'btn-light'" @click="rooms = 2">2</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 3 ? 'btn-dark' : 'btn-light'" @click="rooms = 3">3</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 4 ? 'btn-dark' : 'btn-light'" @click="rooms = 4">4</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 5 ? 'btn-dark' : 'btn-light'" @click="rooms = 5">5</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 6 ? 'btn-dark' : 'btn-light'" @click="rooms = 6">6</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 7 ? 'btn-dark' : 'btn-light'" @click="rooms = 7">7</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == 8 ? 'btn-dark' : 'btn-light'" @click="rooms = 8">8+</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     

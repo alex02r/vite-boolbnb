@@ -35,10 +35,11 @@ export default {
         <div class="row justify-content-center">
             <div class="col-6">
                 <form @submit.prevent="searchApartments()">
-                    <div class="input-group mb-3">
+                    <div class="input-group">
+                        <button class="btn btn-light border"> <i class="fas fa-sliders"></i> filtri</button>
                         <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
-                      </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -59,6 +60,8 @@ export default {
         </div>
     </div>
 -->
+
+
 </template>
 <style lang="">
     

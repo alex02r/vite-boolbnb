@@ -12,7 +12,8 @@ export default {
             apartments: [],
             search_address: '',
             currentPage: 1,
-            lastPage: null
+            lastPage: null,
+            showModal: false
         }
     },
     methods: {
@@ -33,10 +34,10 @@ export default {
 <template lang="">
     <div class="container my-4">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <form @submit.prevent="searchApartments()">
-                    <div class="input-group">
-                        <button class="btn btn-light border"> <i class="fas fa-sliders"></i> filtri</button>
+                    <div class="input-group mb-4">
+                        <button type="button" class="btn btn-light border" @click="showModal = true"> <i class="fas fa-sliders"></i> filtri</button>
                         <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
                     </div>
@@ -60,9 +61,12 @@ export default {
         </div>
     </div>
 -->
-
+<div class="" v-if="showModal">
+    <button class="btn btn-danger" @click="showModal = false">close</button>
+    <h1>ciao</h1>
+  </div>
 
 </template>
-<style lang="">
-    
+<style lang="scss" scoped>
+
 </style>

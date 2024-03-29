@@ -9,6 +9,7 @@ export default {
     data() {
         return {
             store,
+            apartment_id: '',
             user_mail: '',
             message: '',
             loading: false,
@@ -21,6 +22,7 @@ export default {
             this.loading = true;
 
             const data = {
+                apartment_id: this.apartment_id,
                 user_mail: this.user_mail,
                 message: this.message,
             }
@@ -31,6 +33,7 @@ export default {
             axios.post(`${this.store.baseUrl}/api/message`, data).then((response) => {
                 // Condizione che mi permette di resettare i campi inseriti dopo l'invio del modulo
                 if (response.data.success) {
+                    this.apartment_id = '',
                     this.user_mail = '';
                     this.message = '';
 
@@ -55,8 +58,12 @@ export default {
             <div class="alert alert-success fw-bold"><i class="fa-solid fa-check-double"></i> Messaggio inviato con successo</div>
         </div>
     </div>
-    <form @submit.prevent="sendForm()" method="post">
+    <form @submit.prevent="sendForm(apartment_id)" method="post">
         <div class="row">
+            <div class="mb-3 col-6">
+                <input type="text" name="apartment_id" class="form-control" id="apartment_id" placeholder="Id Appartamento" required v-model="apartment_id" :class="errors.apartment_id ? 'is-invalid' : ''">
+                 <!-- <p v-for="(error, index) in errors.apartment_id" :key="`message-error-${index}`" class="text-danger"> {{ error }}</p> -->
+            </div>
             <div class="mb-3 col-6">
                 <input type="text" name="user_mail" class="form-control" id="user_mail" placeholder="La tua mail" required v-model="user_mail" :class="errors.user_mail ? 'is-invalid' : ''">
                  <p v-for="(error, index) in errors.user_mail" :key="`message-error-${index}`" class="text-danger"> {{ error }}</p>

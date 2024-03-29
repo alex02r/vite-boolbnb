@@ -36,7 +36,7 @@ export default {
             <ul class="list-unstyled">
                 <li class="fw-bold">Boolbnb</li>
                 <li v-for="item, index in store.menu" :key="index">
-                    <!-- <router-link class="text-body-tertiary link-secondary link-underline-opacity-0 :to="{name: item.name}"> -->{{item.label}}<!-- </router-link> -->
+                    <router-link class="link-dark link-underline-opacity-0" :to="{name: item.name}">{{item.label}}</router-link>
                 </li>
             </ul>
     </div>
@@ -57,8 +57,6 @@ export default {
 </template>
 
 <style lang="scss">
-@use './styles/general.scss';
-
 footer {
     background-color: #F7F7F7;
     padding: 20px 0;

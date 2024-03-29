@@ -1,12 +1,10 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
 import AppMessageForm from '../components/AppMessageForm.vue'
-import Searchbar from '../components/Searchbar.vue';
 
 export default {
     name: 'Home',
     components: {
-        Searchbar,
         AppMessageForm
     }
 }

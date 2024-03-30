@@ -45,15 +45,6 @@ export default {
             </div>
         </div>
     </div>
-
-    <!-- FORM CONTATTO -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <AppMessageForm />
-            </div>
-        </div>
-    </div>
 </template>
 
 <!-- SEZIONE STYLE -->

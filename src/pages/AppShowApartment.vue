@@ -1,7 +1,11 @@
 <script>
 import { store } from '../store';
 import axios from 'axios';
+import AppMessageForm from '../components/AppMessageForm.vue';
 export default {
+    components:{
+        AppMessageForm
+    },
     data() {
         return {
             store,
@@ -15,15 +19,22 @@ export default {
         getApartment(){
             axios.get(`${store.baseUrl}/api/single/apartment/${this.$route.params.slug}/${this.$route.params.id}`).then(response => {
                 if (response.data.success) {
-                    console.log(response.data);
-                    this.apartment = response.data.apartment;
+                    this.apartment = response.data.apartment[0];
                 }else{
-                    console.log(response.data.error);
                     this.$router.push({ name: 'not-found'})
                 }
             })
         },
-
+        getImg(img){
+            let path =`${store.baseUrl}/img/image.png` //immagine di default
+            //controlle se l'immagine è presente
+            if (img != null) {
+                path = `${store.baseUrl}/storage/${img}`
+            }
+            //restituisco il path
+            return path 
+        }
+/* 
         checkDate() {
             if (new Date(this.date) < new Date()) {
                 this.dateError = true;
@@ -37,67 +48,58 @@ export default {
             if(!this.dateError){
                 this.showError = true;
             }
-        }
+        } */
     },
 }
 </script>
 
 <template>
-    <div>
-        <div class="container my-4">
-            <div class="row justify-content-center">
-                <div class="col-6">
-                    <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
-                    <div class="">
-                    </div>
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
+                <div class="">
                 </div>
-                <div class="col-6 h-100">
-                    <h2>{{ apartment.title }} Title</h2>
-                    <h6 class="text-secondary">{{ apartment.address }} Address</h6>
-                    <div class="info">
-                        <i class="fas fa-bed"></i> 2
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <h2>{{ apartment.title }}</h2>
+                <h4 class="text-secondary">{{ apartment.address }}</h4>
+                <ul class="list-unstyled d-flex gap-2">
+                    <li>{{ apartment.square_meters }} mq -</li>
+                    <li>{{ apartment.rooms }} Stanze -</li>
+                    <li>{{ apartment.bathrooms }} Bagni</li>
+                </ul>
+                <div class="" v-if="apartment.services.length > 0">
+                    <h5>Servizi: </h5>
+                    <ul class="list-unstyled" >
+                        <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">
+                            {{ service.name }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="" v-else>
+                    <h5>Nessun servizio</h5>
+                </div>
+                <!-- <form action="">
+                    <div class="w-100 h-100 d-flex justify-content-end">
+                        <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"
+                        name="date_of_birth" value="{{ old('date_of_birth') }}" required
+                        autocomplete="date_of_birth" autofocus>
+                        <span v-if="showError" id="dateError" class="invalid-feedback" role="alert">
+                            Devi selezionare una data futura
+                        </span>
                     </div>
-                    <form action="">
-                        <div class="w-100 h-100 d-flex justify-content-end">
-                            <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"
-                            name="date_of_birth" value="{{ old('date_of_birth') }}" required
-                            autocomplete="date_of_birth" autofocus>
-                            <span v-if="showError" id="dateError" class="invalid-feedback" role="alert">
-                                Devi selezionare una data futura
-                            </span>
-                        </div>
 
-                        <div class="w-100 h-100 d-flex justify-content-end">
-                            <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="w-100 h-100 d-flex justify-content-end">
+                        <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
+                    </div>
+                </form> -->
             </div>
         </div>
     </div>
+    <AppMessageForm></AppMessageForm>
 </template>
 
-<style scoped>
-
-.btn-buy{
-    background-color: #F15B5D;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 200px;
-    border: none;
-    height: 50px;
-}
-
-.input-data{
-    width: 200px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    height: 50px;
-}
-
-:disabled{
-    background-color: #f2999a;
-}
+<style lang="scss" scoped>
 
 </style>

@@ -52,7 +52,7 @@ export default {
 
 <!-- SEZIONE HTML -->
 <template lang="">
-  <div>
+  <div class="container">
     <div class="row" v-if="success">
         <div class="col-12">
             <div class="alert alert-success fw-bold"><i class="fa-solid fa-check-double"></i> Messaggio inviato con successo</div>

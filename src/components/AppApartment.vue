@@ -31,7 +31,9 @@ export default {
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">
-            <h6 class="">{{ app.title }}</h6>
+            <router-link :to="{ name: 'apartment', params: { slug: app.slug,  id: app.id }  }">
+                <h6 class="">{{ app.title }}</h6>
+            </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
                 <i class="fas fa-bed"></i> 2

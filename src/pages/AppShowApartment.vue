@@ -53,17 +53,23 @@ export default {
     <div>
         <div class="container my-4">
             <div class="row justify-content-center">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
                     <div class="">
                     </div>
                 </div>
-                <div class="col-6 h-100">
+                <div class="col-12 col-md-6 h-100">
                     <h2>{{ apartment.title }}</h2>
                     <h4 class="text-secondary">{{ apartment.address }}</h4>
-                    <div class="info">
-                        <i class="fas fa-bed"></i> 2
-                    </div>
+                    <ul class="list-unstyled d-flex gap-2">
+                        <li>{{ apartment.square_meters }} mq -</li>
+                        <li>{{ apartment.rooms }} Stanze -</li>
+                        <li>{{ apartment.bathrooms }} Bagni</li>
+                    </ul>
+                    <h5>Servizi: </h5>
+                    <ul class="list-unstyled">
+                        <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">{{ service.name }}</li>
+                    </ul>
                     <!-- <form action="">
                         <div class="w-100 h-100 d-flex justify-content-end">
                             <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"

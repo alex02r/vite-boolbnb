@@ -90,6 +90,7 @@ export default {
             </div>
         </div>
     </div>
+    <AppMessageForm></AppMessageForm>
 </template>
 
 <style lang="scss" scoped>

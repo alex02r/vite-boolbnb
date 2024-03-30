@@ -1,7 +1,11 @@
 <script>
 import { store } from '../store';
 import axios from 'axios';
+import AppMessageForm from '../components/AppMessageForm.vue';
 export default {
+    components:{
+        AppMessageForm
+    },
     data() {
         return {
             store,
@@ -50,41 +54,39 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div class="container my-4">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                    <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
-                    <div class="">
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
+                <div class="">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <h2>{{ apartment.title }}</h2>
+                <h4 class="text-secondary">{{ apartment.address }}</h4>
+                <ul class="list-unstyled d-flex gap-2">
+                    <li>{{ apartment.square_meters }} mq -</li>
+                    <li>{{ apartment.rooms }} Stanze -</li>
+                    <li>{{ apartment.bathrooms }} Bagni</li>
+                </ul>
+                <h5>Servizi: </h5>
+                <ul class="list-unstyled">
+                    <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">{{ service.name }}</li>
+                </ul>
+                <!-- <form action="">
+                    <div class="w-100 h-100 d-flex justify-content-end">
+                        <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"
+                        name="date_of_birth" value="{{ old('date_of_birth') }}" required
+                        autocomplete="date_of_birth" autofocus>
+                        <span v-if="showError" id="dateError" class="invalid-feedback" role="alert">
+                            Devi selezionare una data futura
+                        </span>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 h-100">
-                    <h2>{{ apartment.title }}</h2>
-                    <h4 class="text-secondary">{{ apartment.address }}</h4>
-                    <ul class="list-unstyled d-flex gap-2">
-                        <li>{{ apartment.square_meters }} mq -</li>
-                        <li>{{ apartment.rooms }} Stanze -</li>
-                        <li>{{ apartment.bathrooms }} Bagni</li>
-                    </ul>
-                    <h5>Servizi: </h5>
-                    <ul class="list-unstyled">
-                        <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">{{ service.name }}</li>
-                    </ul>
-                    <!-- <form action="">
-                        <div class="w-100 h-100 d-flex justify-content-end">
-                            <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"
-                            name="date_of_birth" value="{{ old('date_of_birth') }}" required
-                            autocomplete="date_of_birth" autofocus>
-                            <span v-if="showError" id="dateError" class="invalid-feedback" role="alert">
-                                Devi selezionare una data futura
-                            </span>
-                        </div>
 
-                        <div class="w-100 h-100 d-flex justify-content-end">
-                            <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
-                        </div>
-                    </form> -->
-                </div>
+                    <div class="w-100 h-100 d-flex justify-content-end">
+                        <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
+                    </div>
+                </form> -->
             </div>
         </div>
     </div>

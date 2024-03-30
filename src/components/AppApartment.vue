@@ -31,7 +31,7 @@ export default {
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">
-            <router-link :to="{ name: 'apartment', params: { id: project.id }  }">
+            <router-link :to="{ name: 'apartment', params: { slug: app.slug,  id: app.id }  }">
                 <h6 class="">{{ app.title }}</h6>
             </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>

@@ -15,10 +15,8 @@ export default {
         getApartment(){
             axios.get(`${store.baseUrl}/api/single/apartment/${this.$route.params.slug}/${this.$route.params.id}`).then(response => {
                 if (response.data.success) {
-                    console.log(response.data);
                     this.apartment = response.data.apartment[0];
                 }else{
-                    console.log(response.data.error);
                     this.$router.push({ name: 'not-found'})
                 }
             })
@@ -87,5 +85,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    
+
 </style>

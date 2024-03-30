@@ -16,44 +16,6 @@ export default {
             beds: null,
             bathrooms: null,
             services: [],
-            list_services: [
-                {
-                    name: 'WiFi',
-                    id: 1
-                },
-                {
-                    name: 'Posto Macchina',
-                    id: 2
-                },
-                {
-                    name: 'Piscina',
-                    id: 3
-                },
-                {
-                    name: 'Portineria',
-                    id: 4
-                },
-                {
-                    name: 'Sauna',
-                    id: 5
-                },
-                {
-                    name: 'Vista Mare',
-                    id: 6
-                },
-                {
-                    name: 'Tv',
-                    id: 7
-                },
-                {
-                    name: 'Cucina',
-                    id: 8
-                },
-                {
-                    name: 'Lavatrice',
-                    id: 9
-                }
-            ],
             currentPage: 1,
             lastPage: null,
             showModal: false
@@ -170,7 +132,7 @@ export default {
                                         <h5>Servizi principali</h5>
                                         <div class="form-check">
                                             <div class="row row-gap-2">
-                                                <div class="col-12 col-md-6" v-for="(service, index) in list_services" :key="index">
+                                                <div class="col-12 col-md-6" v-for="(service, index) in store.list_services" :key="index">
                                                     <input class="form-check-input" type="checkbox" :value="service.id" name="checks[]" :id="service.name" v-model="services">
                                                     <label class="form-check-label" :for="service.name">
                                                       {{service.name}}

@@ -69,10 +69,17 @@ export default {
                     <li>{{ apartment.rooms }} Stanze -</li>
                     <li>{{ apartment.bathrooms }} Bagni</li>
                 </ul>
-                <h5>Servizi: </h5>
-                <ul class="list-unstyled">
-                    <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">{{ service.name }}</li>
-                </ul>
+                <div class="" v-if="apartment.services.length > 0">
+                    <h5>Servizi: </h5>
+                    <ul class="list-unstyled" >
+                        <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">
+                            {{ service.name }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="" v-else>
+                    <h5>Nessun servizio</h5>
+                </div>
                 <!-- <form action="">
                     <div class="w-100 h-100 d-flex justify-content-end">
                         <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"

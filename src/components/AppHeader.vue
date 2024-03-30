@@ -47,6 +47,8 @@ export default {
 </template>
 
 <style lang="scss">
+@use './styles/general.scss';
+
 header {
   background-color: white;
   display: flex;

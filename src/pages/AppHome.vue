@@ -1,12 +1,11 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
-
-import Searchbar from '../components/Searchbar.vue';
+import AppMessageForm from '../components/AppMessageForm.vue'
 
 export default {
     name: 'Home',
     components: {
-        Searchbar
+        AppMessageForm
     }
 }
 </script>
@@ -43,6 +42,15 @@ export default {
             </div>
             <div class="col-lg-6 col-12 float-lg-start d-lg-none mb-5">
                 <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM CONTATTO -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <AppMessageForm />
             </div>
         </div>
     </div>

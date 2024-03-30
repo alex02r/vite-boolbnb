@@ -57,6 +57,8 @@ export default {
 </template>
 
 <style lang="scss">
+@use './styles/general.scss';
+
 footer {
     background-color: #F7F7F7;
     padding: 20px 0;

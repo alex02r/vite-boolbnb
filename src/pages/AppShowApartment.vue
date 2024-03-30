@@ -23,6 +23,15 @@ export default {
                 }
             })
         },
+        getImg(img){
+            let path =`${store.baseUrl}/img/image.png` //immagine di default
+            //controlle se l'immagine è presente
+            if (img != null) {
+                path = `${store.baseUrl}/storage/${img}`
+            }
+            //restituisco il path
+            return path 
+        }
 /* 
         checkDate() {
             if (new Date(this.date) < new Date()) {

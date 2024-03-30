@@ -23,7 +23,7 @@ export default {
                 }
             })
         },
-
+/* 
         checkDate() {
             if (new Date(this.date) < new Date()) {
                 this.dateError = true;
@@ -37,7 +37,7 @@ export default {
             if(!this.dateError){
                 this.showError = true;
             }
-        }
+        } */
     },
 }
 </script>
@@ -57,7 +57,7 @@ export default {
                     <div class="info">
                         <i class="fas fa-bed"></i> 2
                     </div>
-                    <form action="">
+                    <!-- <form action="">
                         <div class="w-100 h-100 d-flex justify-content-end">
                             <input onchange="checkDate()" id="date_of_birth" type="date" class="form-control input-data"
                             name="date_of_birth" value="{{ old('date_of_birth') }}" required
@@ -70,7 +70,7 @@ export default {
                         <div class="w-100 h-100 d-flex justify-content-end">
                             <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

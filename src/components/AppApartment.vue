@@ -48,7 +48,9 @@ export default {
     .app-header{
         position: relative;
         .app-img{
-            border-radius: 0.5rem
+            border-radius: 0.5rem;
+            min-height: 250px;
+            object-fit: cover;
         }
         .badge{
             position: absolute;

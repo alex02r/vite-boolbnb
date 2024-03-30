@@ -20,12 +20,12 @@ const router = createRouter({
             component: AppSearched
         },
         {
-            path: '/apartment/:id',
+            path: '/apartment/:slug/:id',
             name: 'apartment',
             component: AppShowApartment
         },
         {
-            path: '/:catchAll(.*)',
+            path: '/:pathMatch(.*)*',
             name: 'not-found',
             component: AppNotFound
         },

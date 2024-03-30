@@ -73,7 +73,7 @@ export default {
                  <p v-for="(error, index) in errors.message" :key="`message-error-${index}`" class="text-danger"> {{ error }}</p>
             </div>
             <div class="d-flex justify-content-center mt-4 mb-5">
-                <button type="submit" class="btn btn-info px-5 fs-5" :disabled="loading"><i class="fa-solid fa-hand-point-right"></i> {{loading ? 'Invio in corso...' : 'Invia' }}</button>
+                <button type="submit" class="btn btn-primary px-5 fs-5" :disabled="loading"><i class="fa-solid fa-hand-point-right"></i> {{loading ? 'Invio in corso...' : 'Invia' }}</button>
             </div>
         </div>
     </form>

@@ -61,8 +61,8 @@ export default {
                     </div>
                 </div>
                 <div class="col-6 h-100">
-                    <h2>{{ apartment.title }} Title</h2>
-                    <h6 class="text-secondary">{{ apartment.address }} Address</h6>
+                    <h2>{{ apartment.title }}</h2>
+                    <h4 class="text-secondary">{{ apartment.address }}</h4>
                     <div class="info">
                         <i class="fas fa-bed"></i> 2
                     </div>
@@ -86,27 +86,6 @@ export default {
     </div>
 </template>
 
-<style scoped>
-
-.btn-buy{
-    background-color: #F15B5D;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 200px;
-    border: none;
-    height: 50px;
-}
-
-.input-data{
-    width: 200px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    height: 50px;
-}
-
-:disabled{
-    background-color: #f2999a;
-}
-
+<style lang="scss" scoped>
+    
 </style>

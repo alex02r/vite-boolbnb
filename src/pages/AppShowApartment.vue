@@ -71,7 +71,7 @@ export default {
                 </ul>
                 <div class="" v-if="apartment.services.length > 0">
                     <h5>Servizi: </h5>
-                    <ul class="list-unstyled" >
+                    <ul class="list-unstyled">
                         <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">
                             {{ service.name }}
                         </li>
@@ -97,7 +97,16 @@ export default {
             </div>
         </div>
     </div>
-    <AppMessageForm></AppMessageForm>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mt-5 mb-2">
+                <h3>Contatta l'host per maggiori informazioni!</h3>
+            </div>
+            <div class="col-7">
+                <AppMessageForm :apartmentId="apartment.id" />
+            </div>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>

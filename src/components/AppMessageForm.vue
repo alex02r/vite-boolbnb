@@ -77,7 +77,7 @@ export default {
                 <p>Tutti i campi con (*) sono obbligatori.</p>
             </div>
             <div class="d-flex justify-content-center mt-4 mb-5">
-                <button type="submit" class="btn btn-primary px-5 fs-5" @click.prevent="sendForm()" :disabled="loading"><i class="fa-solid fa-hand-point-right"></i> {{loading ? 'Invio in corso...' : 'Invia' }}</button>
+                <button type="submit" class="btn btn-form-message px-5 fs-5" @click.prevent="sendForm()" :disabled="loading"><i class="fa-solid fa-hand-point-right"></i> {{loading ? 'Invio in corso...' : 'Invia' }}</button>
             </div>
         </div>
     </form>
@@ -89,5 +89,15 @@ export default {
 
 .link {
     text-decoration: none;
+}
+
+.btn-form-message{
+    background-color: #F15B5D;
+    color: white;
+    transition: 0.5s;
+
+    &:hover{
+        border: 2px solid #F15B5D;
+    }
 }
 </style>

@@ -55,7 +55,6 @@ export default {
   </footer>
    
 </template>
-
 <style lang="scss" scoped>
 
 footer {

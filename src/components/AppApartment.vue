@@ -41,30 +41,67 @@ export default {
         </div>
     </div>
 </template>
+
 <style lang="scss" scoped>
-    .cursor-pointer{
+    .cursor-pointer {
         cursor: pointer;
     }
-    .app-header{
+
+    .app-header {
         position: relative;
-        .app-img{
+
+        .app-img {
             border-radius: 0.5rem;
-            min-height: 250px;
+            max-height: 300px;
             object-fit: cover;
+            width: 100%;
         }
-        .badge{
+
+        .badge {
             position: absolute;
             top: 10px;
-            left: 10px
+            left: 10px;
         }
     }
-    .app-body{
+
+    .app-body {
         margin: 0.5rem 0;
-        h6{
-            line-height: 0.8rem;
+
+        h6 {
+            line-height: 1.5rem;
         }
-        .text-secondary{
+
+        .text-secondary {
             font-weight: 400;
         }
     }
+
+    @media (max-width: 768px) {
+        .app-header .app-img {
+            max-height: 150px;
+        }
+
+        .app-body {
+            margin: 0.2rem 0;
+
+            h6 {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .app-header .app-img {
+            max-height: 200px;
+        }
+
+        .app-body {
+            margin: 0.25rem 0;
+
+            h6 {
+                font-size: 0.95rem;
+            }
+        }
+    }
+
 </style>

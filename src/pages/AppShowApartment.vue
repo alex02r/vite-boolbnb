@@ -2,9 +2,12 @@
 import { store } from '../store';
 import axios from 'axios';
 import AppMessageForm from '../components/AppMessageForm.vue';
+import AppMap from '../components/AppMap.vue';
+
 export default {
     components:{
-        AppMessageForm
+        AppMessageForm,
+        AppMap
     },
     data() {
         return {
@@ -94,6 +97,9 @@ export default {
                         <button class="btn-buy" onclick="clickButton()" disabled="!dateError">Affitta</button>
                     </div>
                 </form> -->
+            </div>
+            <div class="row justify-content-center mt-5">
+                <AppMap :lon="apartment.lon" :lat="apartment.lat" />
             </div>
             <div class="row justify-content-center my-5">
                 <div class="col-12 text-center mt-5 mb-2">

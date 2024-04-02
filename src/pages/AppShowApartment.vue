@@ -95,9 +95,13 @@ export default {
                     </div>
                 </form> -->
             </div>
+            <div class="row justify-content-center my-5">
+                <div class="col-8">
+                    <AppMessageForm />
+                </div>
+            </div>
         </div>
     </div>
-    <AppMessageForm></AppMessageForm>
 </template>
 
 <style lang="scss" scoped>

@@ -11,6 +11,7 @@ export default {
             store,
             apartments: [],
             search_address: '',
+            list_complete: [],
             distance: 20,
             rooms: null,
             beds: null,
@@ -42,6 +43,17 @@ export default {
                 console.error(error);
             }
             
+        },
+        //funzione per l'autocomplete
+        searchAuto(){
+            this.list_complete = []
+            axios.get(`${import.meta.env.VITE_TOMTOM_BASE_URL}/search/2/geocode/${this.search_address}.json?key=${import.meta.env.VITE_TOMTOM_API_KEY}&language=it-IT`).then(response => {
+                response.data.results.forEach(element => {
+                    console.log(element.address.freeformAddress);
+                        this.list_complete.push(element.address.freeformAddress);
+                    });    
+                    
+                })
         }
     },
 }
@@ -53,7 +65,7 @@ export default {
                 <form @submit.prevent="searchApartments()">
                     <div class="input-group mb-4">
                         <button type="button" class="btn btn-light border" @click="showModal = !showModal"> <i class="fas fa-sliders"></i> filtri</button>
-                        <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address">
+                        <input type="text" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address" @keyup="searchAuto()">
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
                     </div>
 

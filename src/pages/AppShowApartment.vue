@@ -57,27 +57,27 @@ export default {
     <div class="container my-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid">
+                <img :src="getImg(apartment.cover_img)" alt="" class="img-fluid rounded-3">
                 <div class="">
                 </div>
             </div>
             <div class="col-12 col-md-6 h-100">
                 <h2>{{ apartment.title }}</h2>
                 <h4 class="text-secondary">{{ apartment.address }}</h4>
-                <ul class="list-unstyled d-flex gap-2">
-                    <li>{{ apartment.square_meters }} mq -</li>
-                    <li>{{ apartment.rooms }} Stanze -</li>
-                    <li>{{ apartment.bathrooms }} Bagni</li>
+                <ul class="list-unstyled d-flex gap-2 mt-3">
+                    <li><i class="fa-solid fa-house color-pink"></i> {{ apartment.square_meters }} mq -</li>
+                    <li><i class="fa-solid fa-bed color-pink"></i> {{ apartment.rooms }} Stanze -</li>
+                    <li><i class="fa-solid fa-toilet color-pink"></i> {{ apartment.bathrooms }} Bagni</li>
                 </ul>
-                <div class="" v-if="apartment.services.length > 0">
-                    <h5>Servizi: </h5>
-                    <ul class="list-unstyled" >
-                        <li class="ms-2" v-for="(service, index) in apartment.services" :key="index">
-                            {{ service.name }}
+                <div class="mt-3" v-if="apartment.services.length > 0">
+                    <h4>Servizi: </h4>
+                    <ul class="list-unstyled">
+                        <li class="" v-for="(service, index) in apartment.services" :key="index">
+                            <i class="fa-solid fa-circle-check color-pink"></i> {{ service.name }}
                         </li>
                     </ul>
                 </div>
-                <div class="" v-else>
+                <div class="mt-3" v-else>
                     <h5>Nessun servizio</h5>
                 </div>
                 <!-- <form action="">
@@ -96,8 +96,11 @@ export default {
                 </form> -->
             </div>
             <div class="row justify-content-center my-5">
+                <div class="col-12 text-center mt-5 mb-2">
+                    <h3>Contatta l'host per maggiori informazioni!</h3>
+                </div>
                 <div class="col-8">
-                    <AppMessageForm />
+                    <AppMessageForm :apartmentId="apartment.id" />
                 </div>
             </div>
         </div>
@@ -105,5 +108,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.color-pink{
+    color: #F15B5D;
+}
+
+li{
+    font-size: 18px;
+}
 
 </style>

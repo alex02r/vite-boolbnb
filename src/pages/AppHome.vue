@@ -20,7 +20,7 @@ export default {
     <div class="container my-5"> 
         <div class="row justify-content-center">
             <div class="col-12 mb-5 text-center">
-                <h2>Cerca il tuo BnB <router-link :to="{ name:'search-apartments' }" class="btn btn-danger rounded-circle py-2"> <i class="fas fa-magnifying-glass-location"></i></router-link></h2>
+                <h2>Cerca il tuo BnB <router-link :to="{ name:'search-apartments' }" class="btn btn-danger rounded-pill"> <i class="fas fa-magnifying-glass-location"></i></router-link></h2>
             </div>
             <div class="col-12 text-center mb-5">
                 <h1 class="fw-bold">Appartamenti in primo piano</h1>

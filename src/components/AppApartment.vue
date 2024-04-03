@@ -31,12 +31,12 @@ export default {
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">
-            <router-link :to="{ name: 'apartment', params: { slug: app.slug,  id: app.id }  }">
-                <h6 class="">{{ app.title }}</h6>
+            <router-link :to="{ name: 'apartment', params: { slug: app.slug,  id: app.id }  }" class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover">
+                <h6>{{ app.title }}</h6>
             </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
-                <i class="fas fa-bed"></i> 2
+                <i class="fas fa-bed"></i> {{ app.beds }}
             </div>
         </div>
     </div>

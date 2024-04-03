@@ -12,7 +12,9 @@ export default {
     data() {
         return {
             store,
-            apartment: []
+            apartment: [],
+            ip: '',
+            date: '',
         }
     },
     created() {
@@ -36,7 +38,8 @@ export default {
             }
             //restituisco il path
             return path 
-        }
+        },
+
 /* 
         checkDate() {
             if (new Date(this.date) < new Date()) {

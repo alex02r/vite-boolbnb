@@ -20,6 +20,9 @@ export default {
             success: false,
         }
     },
+    mounted() {
+        this.incrementVisit();
+    },
     methods: {
         sendForm() {
             this.loading = true;
@@ -33,13 +36,9 @@ export default {
             // DEFINISCO UN OGGETTO CONTENTE I MESSAGGI DI ERRORE
             this.errors = {};
 
-            console.log(data);
-
             axios.post(`${this.store.baseUrl}/api/message`, data).then((response) => {
                 // Condizione che mi permette di resettare i campi inseriti dopo l'invio del modulo
-                console.log(response);
                 if (response.data.success) {
-                    // this.apartment_id = '',
                     this.user_mail = '';
                     this.message = '';
 
@@ -51,6 +50,16 @@ export default {
 
                 this.loading = false;
             });
+        },
+
+        // Funzione per ottenere ip utente per le statistiche di visulizzazione con chiamata axios post
+        async incrementVisit() {
+            try {
+                const response = await axios.post(`${store.baseUrl}/api/view`, { apartment_id: this.apartmentId });
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
         }
     },
 }

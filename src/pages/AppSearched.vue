@@ -47,12 +47,15 @@ export default {
         //funzione per l'autocomplete
         searchAuto(){
             this.list_complete = []
-            axios.get(`${import.meta.env.VITE_TOMTOM_BASE_URL}/search/2/geocode/${this.search_address}.json?key=${import.meta.env.VITE_TOMTOM_API_KEY}&language=it-IT`).then(response => {
-                response.data.results.forEach(element => {
-                        this.list_complete.push(element.address.freeformAddress);
-                    });    
-                    
-                })
+            if (this.search_address != '') {
+             
+                axios.get(`${import.meta.env.VITE_TOMTOM_BASE_URL}/search/2/geocode/${this.search_address}.json?key=${import.meta.env.VITE_TOMTOM_API_KEY}&language=it-IT`).then(response => {
+                    response.data.results.forEach(element => {
+                            this.list_complete.push(element.address.freeformAddress);
+                        });    
+                        
+                    })
+            }
         }
     },
 }

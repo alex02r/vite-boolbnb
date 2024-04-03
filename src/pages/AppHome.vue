@@ -1,11 +1,32 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
 import AppMessageForm from '../components/AppMessageForm.vue'
+import AppApartment from '../components/AppApartment.vue';
+import { store } from '../store';
+import axios from 'axios';
 
 export default {
     name: 'Home',
     components: {
-        AppMessageForm
+        AppMessageForm,
+        AppApartment
+    },
+    data() {
+        return {
+            sponsorApartments: [],
+        }
+    },
+    created() {
+        this.getSponsorApartment()
+    },
+    methods: {
+        getSponsorApartment() {
+
+            axios.get(`${store.baseUrl}/api/sponsor`).then((response) => {
+                this.sponsorApartments = response.data.results;
+            })
+
+        }
     }
 }
 </script>
@@ -25,6 +46,10 @@ export default {
             <div class="col-12 text-center mb-5">
                 <h1 class="fw-bold">Appartamenti in primo piano</h1>
                 <p>Visualizzazione degli appartamenti sponsorizzati</p>
+            <div class="row row-gap-4">
+                <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment" ></AppApartment>
+            </div>
+
             </div>
             <div class="col-lg-6 col-12 align-self-center">
                 <a href="#" class="text-decoration-none"><h3>Visualizza tutti gli appartamenti</h3></a> 
@@ -49,7 +74,6 @@ export default {
 
 <!-- SEZIONE STYLE -->
 <style lang="scss" scoped>
-
 .jumbo {
     background-image: url('../../public/img-jumbo.jpg');
     background-size: cover;
@@ -69,11 +93,12 @@ export default {
 }
 
 h3,
-h1{
-    color: #F15B5D;;
+h1 {
+    color: #F15B5D;
+    ;
 }
 
-img{
+img {
     border-radius: 10px;
 }
 </style>

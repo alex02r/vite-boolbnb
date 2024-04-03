@@ -1,24 +1,24 @@
 <script>
 import { store } from '../store';
 export default {
-    props:{
+    props: {
         app: Object
     },
     data() {
         return {
-            store        
+            store
         }
     },
     methods: {
         //funzione che restituisce l'url dell'immagine
-        getImg(img){
-            let path =`${store.baseUrl}/img/image.png` //immagine di default
+        getImg(img) {
+            let path = `${store.baseUrl}/img/image.png` //immagine di default
             //controlle se l'immagine è presente
             if (img != null) {
                 path = `${store.baseUrl}/storage/${img}`
             }
             //restituisco il path
-            return path 
+            return path
         }
     },
 }
@@ -27,7 +27,11 @@ export default {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 cursor-pointer">
         <div class="app-header">
             <img :src="getImg(app.cover_img)" alt="" class="app-img">
-            <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
+            
+            
+
+            <span v-for="(sponsor, index) in app.sponsors" :key="index" class="badge rounded-pill text-bg-light">Sponsorizzato</span>
+            
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">
@@ -36,35 +40,42 @@ export default {
             </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
-                <i class="fas fa-bed"></i> 2
+                <span><i class="fas fa-bed"></i> {{ app.beds }} &ensp;</span>
+                <span><i class="fa-solid fa-house color-pink"></i> {{ app.square_meters }} mq</span>
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
-    .cursor-pointer{
-        cursor: pointer;
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.app-header {
+    position: relative;
+
+    .app-img {
+        border-radius: 0.5rem;
+        min-height: 250px;
+        object-fit: cover;
     }
-    .app-header{
-        position: relative;
-        .app-img{
-            border-radius: 0.5rem;
-            min-height: 250px;
-            object-fit: cover;
-        }
-        .badge{
-            position: absolute;
-            top: 10px;
-            left: 10px
-        }
+
+    .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px
     }
-    .app-body{
-        margin: 0.5rem 0;
-        h6{
-            line-height: 0.8rem;
-        }
-        .text-secondary{
-            font-weight: 400;
-        }
+}
+
+.app-body {
+    margin: 0.5rem 0;
+
+    h6 {
+        line-height: 0.8rem;
     }
+
+    .text-secondary {
+        font-weight: 400;
+    }
+}
 </style>

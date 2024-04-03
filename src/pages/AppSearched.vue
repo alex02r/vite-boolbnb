@@ -75,13 +75,13 @@ export default {
                     </div>
                     <div class="input-group mb-4">
                         <span class="input-group-text">Km</span>
-                        <input type="text" class="form-control text_width" min="0" max="40" step="1" id="distance" name="distance" v-model="distance">
+                        <input type="text" class="form-control text_width" min="0" max="40" step="1" id="distance" name="distance" @keyup="searchApartments()" v-model="distance">
                         <span class="input-group-text">Stanze</span>
-                        <input type="text" class="form-control text_width" min="1" max="8" id="rooms" name="rooms" v-model="rooms">
+                        <input type="number" class="form-control text_width" min="1" max="8" id="rooms" name="rooms" @click="searchApartments()" v-model="rooms">
                         <span class="input-group-text">Letti</span>
-                        <input type="text" class="form-control text_width" min="1" max="8" id="beds" name="beds" v-model="beds">
+                        <input type="number" class="form-control text_width" min="1" max="8" id="beds" name="beds" @click="searchApartments()" v-model="beds">
                         <span class="input-group-text">Bagni</span>
-                        <input type="text" class="form-control text_width" min="1" max="8" id="bathrooms" name="bathrooms" v-model="bathrooms">
+                        <input type="number" class="form-control text_width" min="1" max="8" id="bathrooms" name="bathrooms" @click="searchApartments()" v-model="bathrooms">
                     </div>
 
                     <div class="filters border rounded" v-if="showModal">

@@ -13,9 +13,9 @@ export default {
             search_address: '',
             list_complete: [],
             distance: 20,
-            rooms: null,
-            beds: null,
-            bathrooms: null,
+            rooms: '',
+            beds: '',
+            bathrooms: '',
             services: [],
             currentPage: 1,
             lastPage: null,
@@ -65,13 +65,23 @@ export default {
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <form @submit.prevent="searchApartments()">
-                    <div class="input-group mb-4">
+                    <div class="input-group mb-1">
                         <button type="button" class="btn btn-light border" @click="showModal = !showModal"> <i class="fas fa-sliders"></i> filtri</button>
                         <input type="text" list="datalistAddress" class="form-control" id="address" v-model="search_address" name="address" placeholder="inserisci Città o Indirizzo.." aria-label="inserisci Città o Indirizzo.." aria-describedby="address" @keyup="searchAuto()">
                         <datalist id="datalistAddress">
                             <option v-for="(autoAddress, index) in list_complete" :key="index"  :value="autoAddress"></option>
                         </datalist>
                         <button class="btn btn-light border"><i class="fas fa-magnifying-glass"></i> Cerca</button>
+                    </div>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">Km</span>
+                        <input type="text" class="form-control text_width" min="0" max="40" step="1" id="distance" name="distance" v-model="distance">
+                        <span class="input-group-text">Stanze</span>
+                        <input type="text" class="form-control text_width" min="1" max="8" id="rooms" name="rooms" v-model="rooms">
+                        <span class="input-group-text">Letti</span>
+                        <input type="text" class="form-control text_width" min="1" max="8" id="beds" name="beds" v-model="beds">
+                        <span class="input-group-text">Bagni</span>
+                        <input type="text" class="form-control text_width" min="1" max="8" id="bathrooms" name="bathrooms" v-model="bathrooms">
                     </div>
 
                     <div class="filters border rounded" v-if="showModal">
@@ -101,7 +111,7 @@ export default {
                                     <div class="mb-3">
                                         <h5>Camere</h5>
                                         <div class="d-flex gap-2 overflow-x-auto">
-                                            <button class="btn rounded-pill px-4" :class="rooms == null ? 'btn-dark' : 'btn-light'" @click="rooms = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="rooms == '' ? 'btn-dark' : 'btn-light'" @click="rooms = ''">qualsiasi</button>
                                             <button class="btn rounded-pill px-4" :class="rooms == 1 ? 'btn-dark' : 'btn-light'" @click="rooms = 1">1</button>
                                             <button class="btn rounded-pill px-4" :class="rooms == 2 ? 'btn-dark' : 'btn-light'" @click="rooms = 2">2</button>
                                             <button class="btn rounded-pill px-4" :class="rooms == 3 ? 'btn-dark' : 'btn-light'" @click="rooms = 3">3</button>
@@ -115,7 +125,7 @@ export default {
                                     <div class="mb-3">
                                         <h5>Letti</h5>
                                         <div class="d-flex gap-2 overflow-x-auto">
-                                            <button class="btn rounded-pill px-4" :class="beds == null ? 'btn-dark' : 'btn-light'" @click="beds = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="beds == '' ? 'btn-dark' : 'btn-light'" @click="beds = ''">qualsiasi</button>
                                             <button class="btn rounded-pill px-4" :class="beds == 1 ? 'btn-dark' : 'btn-light'" @click="beds = 1">1</button>
                                             <button class="btn rounded-pill px-4" :class="beds == 2 ? 'btn-dark' : 'btn-light'" @click="beds = 2">2</button>
                                             <button class="btn rounded-pill px-4" :class="beds == 3 ? 'btn-dark' : 'btn-light'" @click="beds = 3">3</button>
@@ -129,7 +139,7 @@ export default {
                                     <div class="mb-3">
                                         <h5>Bagni</h5>
                                         <div class="d-flex gap-2 overflow-x-auto">
-                                            <button class="btn rounded-pill px-4" :class="bathrooms == null ? 'btn-dark' : 'btn-light'" @click="bathrooms = null">qualsiasi</button>
+                                            <button class="btn rounded-pill px-4" :class="bathrooms == '' ? 'btn-dark' : 'btn-light'" @click="bathrooms = ''">qualsiasi</button>
                                             <button class="btn rounded-pill px-4" :class="bathrooms == 1 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 1">1</button>
                                             <button class="btn rounded-pill px-4" :class="bathrooms == 2 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 2">2</button>
                                             <button class="btn rounded-pill px-4" :class="bathrooms == 3 ? 'btn-dark' : 'btn-light'" @click="bathrooms = 3">3</button>
@@ -194,5 +204,8 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
+    }
+    .input-group-text.text_width{
+        width: 20px;
     }
 </style>

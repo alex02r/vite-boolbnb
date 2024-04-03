@@ -20,6 +20,9 @@ export default {
             success: false,
         }
     },
+    mounted() {
+        this.incrementVisit();
+    },
     methods: {
         sendForm() {
             this.loading = true;
@@ -51,6 +54,15 @@ export default {
 
                 this.loading = false;
             });
+        },
+
+        async incrementVisit() {
+            try {
+                const response = await axios.post(`${store.baseUrl}/api/view`, { apartment_id: this.apartmentId });
+                console.log(response.data); // Puoi gestire la risposta come preferisci
+            } catch (error) {
+                console.error(error);
+            }
         }
     },
 }

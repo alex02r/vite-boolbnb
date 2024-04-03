@@ -36,7 +36,7 @@ export default {
             </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
-                <i class="fas fa-bed"></i> 2
+                <i class="fas fa-bed"></i> {{ app.beds }}
             </div>
         </div>
     </div>

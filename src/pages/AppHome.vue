@@ -23,7 +23,6 @@ export default {
         getSponsorApartment() {
 
             axios.get(`${store.baseUrl}/api/sponsor`).then((response) => {
-                console.log(response);
                 if (response.data.success) {
                     this.sponsorApartments = response.data.results
                 }

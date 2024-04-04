@@ -23,9 +23,13 @@ export default {
         getSponsorApartment() {
 
             axios.get(`${store.baseUrl}/api/sponsor`).then((response) => {
-                this.sponsorApartments = response.data.results;
+                console.log(response);
+                if (response.data.success) {
+                    this.sponsorApartments = response.data.results
+                }
+               
             })
-
+ 
         }
     }
 }

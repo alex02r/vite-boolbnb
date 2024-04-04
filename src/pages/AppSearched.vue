@@ -3,7 +3,7 @@ import AppApartment from '../components/AppApartment.vue';
 import { store } from '../store.js';
 import axios from 'axios';
 export default {
-    components:{
+    components: {
         AppApartment
     },
     data() {
@@ -19,42 +19,51 @@ export default {
             services: [],
             currentPage: 1,
             lastPage: null,
-            showModal: false
+            showModal: false,
+            sponsorApartments: [],
         }
     },
+    created() {
+        this.getSponsorApartment()
+    },
     methods: {
+        getSponsorApartment() {
+            axios.get(`${store.baseUrl}/api/sponsor`).then((response) => {
+                this.sponsorApartments = response.data.results;
+            })
+
+        },
+
         //funzione che esegue la ricerca degli partments
-        async searchApartments(){
+        async searchApartments() {
             try {
                 //eseguiamo la chimata API 
-                const { data } = await axios.get(`${store.baseUrl}/api/search`, 
-                { 
-                    params:{ 
-                        address: this.search_address, 
-                        distance:this.distance,
-                        rooms: this.rooms,
-                        beds: this.beds,
-                        bathrooms: this.bathrooms,
-                        services: this.services, 
-                    } 
-                });
+                const { data } = await axios.get(`${store.baseUrl}/api/search`,
+                    {
+                        params: {
+                            address: this.search_address,
+                            distance: this.distance,
+                            rooms: this.rooms,
+                            beds: this.beds,
+                            bathrooms: this.bathrooms,
+                            services: this.services,
+                        }
+                    });
                 this.apartments = data.apartments
             } catch (error) {
                 console.error(error);
             }
-            
         },
         //funzione per l'autocomplete
         searchAuto(){
             this.list_complete = []
             if (this.search_address != '') {
-             
                 axios.get(`${import.meta.env.VITE_TOMTOM_BASE_URL}/search/2/geocode/${this.search_address}.json?key=${import.meta.env.VITE_TOMTOM_API_KEY}&language=it-IT`).then(response => {
                     response.data.results.forEach(element => {
-                            this.list_complete.push(element.address.freeformAddress);
-                        });    
+                        this.list_complete.push(element.address.freeformAddress);
+                    });    
                         
-                    })
+                })
             }
         }
     },
@@ -178,9 +187,12 @@ export default {
         </div>
         <div class="row row-gap-4">
             <div v-if="apartments.length == 0" class="col-12 text-center">
-                <h2>Inserire appartmenti sponsorizzati </h2>
+                <h2 class='mt-2 mb-5'>Appartamenti sponsorizzati </h2>
+                <div class="row row-gap-4">
+                <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
+                </div>
             </div>
-            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" ></AppApartment>
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment"></AppApartment>
         </div>
     </div>
 <!-- paginazione 

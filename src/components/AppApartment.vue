@@ -1,24 +1,24 @@
 <script>
 import { store } from '../store';
 export default {
-    props:{
+    props: {
         app: Object
     },
     data() {
         return {
-            store        
+            store
         }
     },
     methods: {
         //funzione che restituisce l'url dell'immagine
-        getImg(img){
-            let path =`${store.baseUrl}/img/image.png` //immagine di default
+        getImg(img) {
+            let path = `${store.baseUrl}/img/image.png` //immagine di default
             //controlle se l'immagine è presente
             if (img != null) {
                 path = `${store.baseUrl}/storage/${img}`
             }
             //restituisco il path
-            return path 
+            return path
         }
     },
 }
@@ -27,7 +27,11 @@ export default {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 cursor-pointer" v-if="app.show">
         <div class="app-header">
             <img :src="getImg(app.cover_img)" alt="" class="app-img">
-            <span class="badge rounded-pill text-bg-light">Sponsorizzato</span>
+            
+            
+
+            <span v-for="(sponsor, index) in app.sponsors" :key="index" class="badge rounded-pill text-bg-light">Sponsorizzato</span>
+            
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">

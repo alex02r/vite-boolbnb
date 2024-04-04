@@ -52,16 +52,16 @@ export default {
 
         .app-img {
             border-radius: 0.5rem;
-            max-height: 300px;
+            height: 300px;
             object-fit: cover;
             width: 100%;
 
             @media only screen and (min-width: 1400px) {
-                    max-height: 205px;
+                    height: 205px;
                 }
             
             @media only screen and (min-width: 576px) and (max-width: 1399px) {
-                max-height: 145px;
+                height: 145px;
             }
         }
 

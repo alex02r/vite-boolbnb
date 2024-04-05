@@ -27,11 +27,7 @@ export default {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 cursor-pointer" v-if="app.show">
         <div class="app-header">
             <img :src="getImg(app.cover_img)" alt="" class="app-img">
-            
-            
-
-            <span v-for="(sponsor, index) in app.sponsors" :key="index" class="badge rounded-pill text-bg-light">Sponsorizzato</span>
-            
+            <span v-if="app.sponsors.length > 0" class="badge rounded-pill text-bg-light">Sponsorizzato</span>
         </div>
         <!-- badge per la sponsorizzazione -->
         <div class="app-body">

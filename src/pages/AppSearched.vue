@@ -99,7 +99,7 @@ export default {
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-2">
                                     <button class="btn btn-light" @click="showModal = !showModal"><i class="fas fa-x"></i></button>
-                                    <button class="btn btn-light" @click="searchApartments()"><i class="fas fa-search"></i></button>
+                                    <button class="btn btn-light" @click="searchApartments(), showModal = !showModal"><i class="fas fa-search"></i></button>
                                 </div>
                                 <div class="col-6">
                                     <h5>Filtri</h5>

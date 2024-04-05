@@ -192,6 +192,10 @@ export default {
                 <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
                 </div>
             </div>
+            <div class="col-12" v-if="apartments.length > 0">
+                <h6>Sono stati trovati ({{ apartments.length }} risultati)</h6>
+                <hr>
+            </div>
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment"></AppApartment>
         </div>
     </div>

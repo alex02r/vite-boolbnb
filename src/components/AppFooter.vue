@@ -45,12 +45,12 @@ export default {
                 <div>
                     <hr>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <p>© 2024 Boolbnb, Inc.  · Privacy · Termini · Mappa del sito · Dettagli dell'azienda</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="m-0">© 2024 Boolbnb, Inc.  · Privacy · Termini · Mappa del sito · Dettagli dell'azienda</p>
                     <div>
-                        <i class="p-2 fa-brands fa-square-facebook fa-lg"></i>
-                        <i class="p-2 fa-brands fa-square-instagram fa-lg"></i>
-                        <i class="p-2 fa-brands fa-square-x-twitter fa-lg"></i>
+                        <i class="p-2 social fa-brands fa-square-facebook"></i>
+                        <i class="p-2 social fa-brands fa-square-instagram"></i>
+                        <i class="p-2 social fa-brands fa-square-x-twitter"></i>
                     </div>
                 </div>
             <!-- </div>
@@ -75,6 +75,9 @@ footer {
 
     ul {
         padding: 10px 20px;
+    }
+    .social{
+        font-size: 28px;
     }
 }
 </style>

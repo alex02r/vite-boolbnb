@@ -26,7 +26,7 @@ export default {
             let center = [lon, lat];
 
             const map = tt.map({
-                key: '9CMceOdItBPcoD8aScoApx2EnxYIj4u9',
+                key: import.meta.env.VITE_TOMTOM_API_KEY,
                 container: 'map',
                 center: center,
                 zoom: 15,

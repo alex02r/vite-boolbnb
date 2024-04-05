@@ -29,7 +29,7 @@ export default {
                 key: '9CMceOdItBPcoD8aScoApx2EnxYIj4u9',
                 container: 'map',
                 center: center,
-                zoom: 12,
+                zoom: 15,
                 radius: 20000
             });
 

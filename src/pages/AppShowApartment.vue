@@ -5,7 +5,7 @@ import AppMessageForm from '../components/AppMessageForm.vue';
 import AppMap from '../components/AppMap.vue';
 
 export default {
-    components:{
+    components: {
         AppMessageForm,
         AppMap
     },
@@ -21,40 +21,40 @@ export default {
         this.getApartment();
     },
     methods: {
-        getApartment(){
+        getApartment() {
             axios.get(`${store.baseUrl}/api/single/apartment/${this.$route.params.slug}/${this.$route.params.id}`).then(response => {
                 if (response.data.success) {
                     this.apartment = response.data.apartment[0];
-                }else{
-                    this.$router.push({ name: 'not-found'})
+                } else {
+                    this.$router.push({ name: 'not-found' })
                 }
             })
         },
-        getImg(img){
-            let path =`${store.baseUrl}/img/image.png` //immagine di default
+        getImg(img) {
+            let path = `${store.baseUrl}/img/image.png` //immagine di default
             //controlle se l'immagine è presente
             if (img != null) {
                 path = `${store.baseUrl}/storage/${img}`
             }
             //restituisco il path
-            return path 
+            return path
         },
 
-/* 
-        checkDate() {
-            if (new Date(this.date) < new Date()) {
-                this.dateError = true;
-            } else {
-                this.dateError = false;
-                this.change();
-            }
-        },
-
-        change(){
-            if(!this.dateError){
-                this.showError = true;
-            }
-        } */
+        /* 
+                checkDate() {
+                    if (new Date(this.date) < new Date()) {
+                        this.dateError = true;
+                    } else {
+                        this.dateError = false;
+                        this.change();
+                    }
+                },
+        
+                change(){
+                    if(!this.dateError){
+                        this.showError = true;
+                    }
+                } */
     },
 }
 </script>
@@ -71,9 +71,12 @@ export default {
                 <h2>{{ apartment.title }}</h2>
                 <h4 class="text-secondary">{{ apartment.address }}</h4>
                 <ul class="list-unstyled d-flex gap-2 mt-3">
-                    <li><i class="fa-solid fa-house color-pink"></i> {{ apartment.square_meters }} mq -</li>
-                    <li><i class="fa-solid fa-bed color-pink"></i> {{ apartment.rooms }} Stanze -</li>
-                    <li><i class="fa-solid fa-toilet color-pink"></i> {{ apartment.bathrooms }} Bagni</li>
+                    <li><i class="fa-solid fa-house-circle-check color-pink"></i> {{ apartment.square_meters }} Mq -
+                    </li>
+                    <li><i class="fa-solid fa-house color-pink"></i> {{ apartment.rooms }} Stanze -</li>
+                    <li><i class="fa-solid fa-bed color-pink"></i> {{ apartment.beds }} Letti -</li>
+                    <li><i class="fa-solid fa-bath color-pink"></i> {{ apartment.bathrooms }} Bagni</li>
+
                 </ul>
                 <div class="mt-3" v-if="apartment.services.length > 0">
                     <h4>Servizi: </h4>
@@ -117,13 +120,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-.color-pink{
+.color-pink {
     color: #F15B5D;
 }
 
-li{
+li {
     font-size: 18px;
 }
-
 </style>

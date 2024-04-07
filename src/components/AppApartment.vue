@@ -38,52 +38,53 @@ export default {
             </router-link>
             <h6 class="text-secondary">{{ app.address }}</h6>
             <div class="info">
-                <i class="fas fa-bed"></i> {{ app.beds }}
+                <span><i class="fa-solid fa-house"></i> {{ app.rooms }} &nbsp;</span>
+                <span><i class="fas fa-bed"></i> {{ app.beds }} &nbsp;</span>
+                <span><i class="fa-solid fa-bath"></i> {{ app.bathrooms }}</span>
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    .cursor-pointer {
-        cursor: pointer;
-    }
+.cursor-pointer {
+    cursor: pointer;
+}
 
-    .app-header {
-        position: relative;
+.app-header {
+    position: relative;
 
-        .app-img {
-            border-radius: 0.5rem;
-            height: 300px;
-            object-fit: cover;
-            width: 100%;
+    .app-img {
+        border-radius: 0.5rem;
+        height: 300px;
+        object-fit: cover;
+        width: 100%;
 
-            @media only screen and (min-width: 1400px) {
-                    height: 205px;
-                }
-            
-            @media only screen and (min-width: 576px) and (max-width: 1399px) {
-                height: 145px;
-            }
+        @media only screen and (min-width: 1400px) {
+            height: 205px;
         }
 
-        .badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+        @media only screen and (min-width: 576px) and (max-width: 1399px) {
+            height: 145px;
         }
     }
 
-    .app-body {
-        margin: 0.5rem 0;
+    .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+}
 
-        h6 {
-            line-height: 1.5rem;
-        }
+.app-body {
+    margin: 0.5rem 0;
 
-        .text-secondary {
-            font-weight: 400;
-        }
+    h6 {
+        line-height: 1.5rem;
     }
 
+    .text-secondary {
+        font-weight: 400;
+    }
+}
 </style>

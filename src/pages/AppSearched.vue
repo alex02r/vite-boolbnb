@@ -9,6 +9,8 @@ export default {
     data() {
         return {
             store,
+            loader: false,
+            sponsor: true,
             apartments: [],
             search_address: '',
             list_complete: [],
@@ -37,19 +39,24 @@ export default {
         //funzione che esegue la ricerca degli partments
         async searchApartments() {
             try {
-                //eseguiamo la chimata API 
-                const { data } = await axios.get(`${store.baseUrl}/api/search`,
-                    {
-                        params: {
-                            address: this.search_address,
-                            distance: this.distance,
-                            rooms: this.rooms,
-                            beds: this.beds,
-                            bathrooms: this.bathrooms,
-                            services: this.services,
-                        }
-                    });
-                this.apartments = data.apartments
+                if (this.search_address != '') {
+                    this.sponsor = false
+                    this.loader = true
+                    //eseguiamo la chimata API 
+                    const { data } = await axios.get(`${store.baseUrl}/api/search`,
+                        {
+                            params: {
+                                address: this.search_address,
+                                distance: this.distance,
+                                rooms: this.rooms,
+                                beds: this.beds,
+                                bathrooms: this.bathrooms,
+                                services: this.services,
+                            }
+                        });
+                        this.apartments = data.apartments
+                        this.loader = false
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -189,17 +196,25 @@ export default {
             </div>
         </div>
         <div class="row row-gap-4">
-            <div v-if="apartments.length == 0" class="col-12 text-center">
-                <h2 class='mt-2 mb-5'>Appartamenti sponsorizzati </h2>
+            <div v-if="sponsor" class="col-12 text-center">
+                <h2 class='mt-2 mb-5'>Appartamenti in primo piano </h2>
                 <div class="row row-gap-4">
-                <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
+                    <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
                 </div>
             </div>
             <div class="col-12" v-if="apartments.length > 0">
                 <h6>Sono stati trovati ({{ apartments.length }} risultati)</h6>
                 <hr>
             </div>
-            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment"></AppApartment>
+            <div class="col-12 text-center" v-else>
+                <h2>Nessun risultato trovato</h2>
+            </div>
+            <div class="col-12" v-if="loader">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" :loader="loader"></AppApartment>
         </div>
     </div>
 <!-- paginazione 
@@ -227,4 +242,18 @@ export default {
     .input-group-text.text_width{
         width: 20px;
     }
+    .spinner {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: conic-gradient(#0000 10%,#f15b5d);
+        -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+        animation: spinner-zp9dbg 1s infinite linear;
+     }
+     
+     @keyframes spinner-zp9dbg {
+        to {
+           transform: rotate(1turn);
+        }
+     }
 </style>

@@ -9,6 +9,7 @@ export default {
     data() {
         return {
             store,
+            loader: false,
             sponsor: true,
             apartments: [],
             search_address: '',
@@ -39,6 +40,7 @@ export default {
         async searchApartments() {
             try {
                 this.sponsor = false
+                this.loader = true
                 //eseguiamo la chimata API 
                 const { data } = await axios.get(`${store.baseUrl}/api/search`,
                     {
@@ -52,6 +54,7 @@ export default {
                         }
                     });
                     this.apartments = data.apartments
+                    this.loader = false
             } catch (error) {
                 console.error(error);
             }
@@ -204,7 +207,12 @@ export default {
             <div class="col-12 text-center" v-else>
                 <h2>Nessun risultato trovato</h2>
             </div>
-            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment"></AppApartment>
+            <div class="col-12" v-if="loader">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+            <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment" :loader="loader"></AppApartment>
         </div>
     </div>
 <!-- paginazione 
@@ -232,4 +240,18 @@ export default {
     .input-group-text.text_width{
         width: 20px;
     }
+    .spinner {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: conic-gradient(#0000 10%,#f15b5d);
+        -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+        animation: spinner-zp9dbg 1s infinite linear;
+     }
+     
+     @keyframes spinner-zp9dbg {
+        to {
+           transform: rotate(1turn);
+        }
+     }
 </style>

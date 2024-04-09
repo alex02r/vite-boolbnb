@@ -12,47 +12,51 @@ export default {
 </script>
 
 <template lang="">
-  <footer>
+<footer>
     <div class="container">
-        <div class="d-md-flex">
-            <ul class="list-unstyled">
-                <li class="fw-bold">Assistenza</li>
-                <li>Centro Assistenza</li>
-                <li>BoolCover</li>
-                <li>Antidiscriminazione</li>
-                <li>Supporto alla disabilità</li>
-                <li>Opzioni di cancellazione</li>
-                <li>Segnala problema nel quartiere</li>
-            </ul>
-            <ul class="list-unstyled">
-                <li class="fw-bold">Ospitare</li>
-                <li>Apri un Airbnb</li>
-                <li>Risorse per gli host</li>
-                <li>Forum della community</li>
-                <li>Ospitare responsabilmente</li>
-                <li>Partecipa a una lezione gratuita sull'ospitalità</li>
-                <li>Segnala problema nel quartiere</li>
-            </ul>
-            <ul class="list-unstyled">
-                <li class="fw-bold">Boolbnb</li>
-                <li v-for="item, index in store.menu" :key="index">
-                    <router-link class="link-dark link-underline-opacity-0" :to="{name: item.name}">{{item.label}}</router-link>
-                </li>
-            </ul>
-    </div>
-    <div>
-        <hr>
-    </div>
-<div class="d-flex justify-content-between">
-    <p>© 2024 Boolbnb, Inc.  · Privacy · Termini · Mappa del sito · Dettagli dell'azienda</p>
-    <div>
-        <i class="p-2 fa-brands fa-square-facebook fa-lg"></i>
-        <i class="p-2 fa-brands fa-square-instagram fa-lg"></i>
-        <i class="p-2 fa-brands fa-square-x-twitter fa-lg"></i>
-    </div>
-</div>
-</div>
-  </footer>
+        <!-- <div class="row">
+            <div class="col"> -->
+                <div class="d-md-flex justify-content-between">
+                    <ul class="list-unstyled">
+                        <li class="fw-bold">Assistenza</li>
+                        <li>Centro Assistenza</li>
+                        <li>BoolCover</li>
+                        <li>Antidiscriminazione</li>
+                        <li>Supporto alla disabilità</li>
+                        <li>Opzioni di cancellazione</li>
+                        <li>Segnala problema nel quartiere</li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li class="fw-bold">Ospitare</li>
+                        <li>Apri un Airbnb</li>
+                        <li>Risorse per gli host</li>
+                        <li>Forum della community</li>
+                        <li>Ospitare responsabilmente</li>
+                        <li>Partecipa a una lezione gratuita sull'ospitalità</li>
+                        <li>Segnala problema nel quartiere</li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li class="fw-bold">Boolbnb</li>
+                        <li v-for="item, index in store.menu" :key="index">
+                            <router-link class="link-dark link-underline-opacity-0" :to="{name: item.name}">{{item.label}}</router-link>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <hr>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="m-0">© 2024 Boolbnb, Inc.  · Privacy · Termini · Mappa del sito · Dettagli dell'azienda</p>
+                    <div>
+                        <i class="p-2 social fa-brands fa-square-facebook"></i>
+                        <i class="p-2 social fa-brands fa-square-instagram"></i>
+                        <i class="p-2 social fa-brands fa-square-x-twitter"></i>
+                    </div>
+                </div>
+            <!-- </div>
+        </div> -->
+    </div> 
+</footer>
    
 </template>
 <style lang="scss" scoped>
@@ -70,7 +74,10 @@ footer {
     }
 
     ul {
-        padding: 10px 150px;
+        padding: 10px 20px;
+    }
+    .social{
+        font-size: 28px;
     }
 }
 </style>

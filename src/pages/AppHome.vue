@@ -47,7 +47,7 @@ export default {
                 <h2>Cerca il tuo BnB <router-link :to="{ name:'search-apartments' }" class="btn btn-danger rounded-pill"> <i class="fas fa-magnifying-glass-location"></i></router-link></h2>
             </div>
             <div class="col-12 text-center mb-5">
-                <h1 class="fw-bold">Appartamenti in primo piano</h1>
+                <h1 class="fw-bold mb-5">Appartamenti in primo piano</h1>
                 <h4 v-if="sponsorApartments.length == 0 ">Non ci sono appartamenti consigliati </h4>
             <div class="row row-gap-4">
                 <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment" ></AppApartment>

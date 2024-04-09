@@ -96,8 +96,8 @@ export default {
                         <input type="number" class="form-control text_width" min="1" max="8" id="rooms" name="rooms" @click="searchApartments()" v-model="rooms">
                         <span class="input-group-text">Letti</span>
                         <input type="number" class="form-control text_width" min="1" max="8" id="beds" name="beds" @click="searchApartments()" v-model="beds">
-                        <span class="input-group-text">Bagni</span>
-                        <input type="number" class="form-control text_width" min="1" max="8" id="bathrooms" name="bathrooms" @click="searchApartments()" v-model="bathrooms">
+                        <span class="input-group-text d-none d-md-inline">Bagni</span>
+                        <input type="number" class="form-control text_width d-none d-md-inline" min="1" max="8" id="bathrooms" name="bathrooms" @click="searchApartments()" v-model="bathrooms">
                     </div>
 
                     <div class="filters border rounded" v-if="showModal">

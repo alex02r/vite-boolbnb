@@ -18,7 +18,7 @@ export default {
             <div class="col"> -->
                 <div class="d-md-flex justify-content-between">
                     <ul class="list-unstyled">
-                        <li class="fw-bold">Assistenza</li>
+                        <li class="fw-bold li-title">Assistenza</li>
                         <li>Centro Assistenza</li>
                         <li>BoolCover</li>
                         <li>Antidiscriminazione</li>
@@ -27,7 +27,7 @@ export default {
                         <li>Segnala problema nel quartiere</li>
                     </ul>
                     <ul class="list-unstyled">
-                        <li class="fw-bold">Ospitare</li>
+                        <li class="fw-bold li-title">Ospitare</li>
                         <li>Apri un Airbnb</li>
                         <li>Risorse per gli host</li>
                         <li>Forum della community</li>
@@ -36,7 +36,7 @@ export default {
                         <li>Segnala problema nel quartiere</li>
                     </ul>
                     <ul class="list-unstyled">
-                        <li class="fw-bold">Boolbnb</li>
+                        <li class="fw-bold li-title">Boolbnb</li>
                         <li v-for="item, index in store.menu" :key="index">
                             <router-link class="link-dark link-underline-opacity-0" :to="{name: item.name}">{{item.label}}</router-link>
                         </li>
@@ -45,7 +45,7 @@ export default {
                 <div>
                     <hr>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-md-flex text-center justify-content-md-between align-items-center">
                     <p class="m-0">© 2024 Boolbnb, Inc.  · Privacy · Termini · Mappa del sito · Dettagli dell'azienda</p>
                     <div>
                         <i class="p-2 social fa-brands fa-square-facebook"></i>
@@ -71,6 +71,11 @@ footer {
 
     li:hover {
         background-color: rgb(213, 213, 213);
+        border-radius: 10px;
+    }
+
+    .li-title:hover{
+        background-color: transparent;
     }
 
     ul {

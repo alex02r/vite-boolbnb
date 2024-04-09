@@ -39,22 +39,24 @@ export default {
         //funzione che esegue la ricerca degli partments
         async searchApartments() {
             try {
-                this.sponsor = false
-                this.loader = true
-                //eseguiamo la chimata API 
-                const { data } = await axios.get(`${store.baseUrl}/api/search`,
-                    {
-                        params: {
-                            address: this.search_address,
-                            distance: this.distance,
-                            rooms: this.rooms,
-                            beds: this.beds,
-                            bathrooms: this.bathrooms,
-                            services: this.services,
-                        }
-                    });
-                    this.apartments = data.apartments
-                    this.loader = false
+                if (this.search_address != '') {
+                    this.sponsor = false
+                    this.loader = true
+                    //eseguiamo la chimata API 
+                    const { data } = await axios.get(`${store.baseUrl}/api/search`,
+                        {
+                            params: {
+                                address: this.search_address,
+                                distance: this.distance,
+                                rooms: this.rooms,
+                                beds: this.beds,
+                                bathrooms: this.bathrooms,
+                                services: this.services,
+                            }
+                        });
+                        this.apartments = data.apartments
+                        this.loader = false
+                }
             } catch (error) {
                 console.error(error);
             }

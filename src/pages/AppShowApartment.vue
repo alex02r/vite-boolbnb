@@ -73,9 +73,9 @@ export default {
                 <ul class="list-unstyled d-flex gap-2 mt-3">
                     <li><i class="fa-solid fa-house-circle-check color-pink"></i> {{ apartment.square_meters }} Mq -
                     </li>
-                    <li><i class="fa-solid fa-house color-pink"></i> {{ apartment.rooms }} Stanze -</li>
-                    <li><i class="fa-solid fa-bed color-pink"></i> {{ apartment.beds }} Letti -</li>
-                    <li><i class="fa-solid fa-bath color-pink"></i> {{ apartment.bathrooms }} Bagni</li>
+                    <li><i class="fa-solid fa-house color-pink"></i> {{ apartment.rooms }} {{ apartment.rooms == 1 ? 'Camera' : 'Camere' }} -</li>
+                    <li><i class="fa-solid fa-bed color-pink"></i> {{ apartment.beds }} {{ apartment.beds == 1 ? 'Letto' : 'Letti' }} -</li>
+                    <li><i class="fa-solid fa-bath color-pink"></i> {{ apartment.bathrooms }} {{ apartment.bathrooms == 1 ? 'Bagno' : 'Bagni' }}</li>
 
                 </ul>
                 <div class="mt-3" v-if="apartment.services.length > 0">
@@ -105,13 +105,14 @@ export default {
                 </form> -->
             </div>
             <div class="row justify-content-center mt-5">
+                <h3 class="mb-2">Noi ci troviamo qui</h3>
                 <AppMap :lon="apartment.lon" :lat="apartment.lat" />
             </div>
             <div class="row justify-content-center my-5">
                 <div class="col-12 text-center mt-5 mb-2">
                     <h3>Contatta l'host per maggiori informazioni!</h3>
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8">
                     <AppMessageForm :apartmentId="apartment.id" />
                 </div>
             </div>

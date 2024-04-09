@@ -55,21 +55,21 @@ export default {
 
             </div>
             <div class="col-lg-6 col-12 align-self-center">
-                <a href="#" class="text-decoration-none"><h3>Visualizza tutti gli appartamenti</h3></a> 
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda adipisci quibusdam aliquam, asperiores maiores, nobis, harum ad nesciunt perferendis beatae exercitationem molestias odio et quos nam fugit corporis voluptatum esse.</p>
+                <a href="http://localhost:5174/searched" class="text-decoration-none"><h3>Cerca la tua prossima esperienza indimenticabile</h3></a> 
+                <p>Ricerca la tua prossima destinazione e goditi una meritata vacanza da solo, in compagnia dei tuoi amici o in famiglia! Puoi scegliere tra località di mare, luoghi lontani dalla civiltà oppure le più grandi città del mondo.</p>
             </div>
             <div class="col-lg-6 col-12 mb-4">
-                <a href="#" class="text-decoration-none"><img src="../../public/airbnb-img.jpg" alt="logo" width="600px"></a>
+                <a href="http://localhost:5174/searched" class="text-decoration-none"><img src="../../public/airbnb-img.jpg" alt="logo" width="600px"></a>
             </div>
-            <div class="col-lg-6 col-12 float-lg-start d-lg-block d-sm-none mb-5">
-                <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
+            <div class="col-lg-6 col-12 float-lg-start d-none d-lg-block mb-5">
+                <a href="http://127.0.0.1:8000/user" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
             </div>
             <div class="col-lg-6 col-12 align-self-center ps-lg-5 mb-lg-5">
-                <a href="#" class="text-decoration-none"><h3>Contattaci</h3></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim debitis natus recusandae quasi beatae aliquid totam consectetur ipsa consequatur, quos id, dolorem suscipit alias corrupti molestias sunt accusamus laboriosam!</p>
+                <a href="http://127.0.0.1:8000/user" class="text-decoration-none"><h3>Sei nuovo? Registrati subito!</h3></a>
+                <p>Se hai un appartmaneto, una villa o una proprietà da voler affittare, noi possiamo aiutarti grazie alla nostra innovativa piattaforma. Grazie alle nostre sponsorizzazioni personalizzate, potrai collocarti tra i primi risultati di ricerca nella tua zona e ricevere più richieste.</p>
             </div>
             <div class="col-lg-6 col-12 float-lg-start d-lg-none mb-5">
-                <a href="#" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
+                <a href="http://127.0.0.1:8000/user" class="text-decoration-none"><img src="../../public/airbnb-uomo.jpg" alt="logo" width="600px"></a>
             </div>
         </div>
     </div>

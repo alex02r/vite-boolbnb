@@ -79,7 +79,7 @@ export default {
 <template lang="">
     <div class="container my-4">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
+            <div class="col-lg-6">
                 <form @submit.prevent="searchApartments()">
                     <div class="input-group mb-1">
                         <button type="button" class="btn btn-light border" @click="showModal = !showModal"> <i class="fas fa-sliders"></i> filtri</button>
@@ -96,8 +96,8 @@ export default {
                         <input type="number" class="form-control text_width" min="1" max="8" id="rooms" name="rooms" @click="searchApartments()" v-model="rooms">
                         <span class="input-group-text">Letti</span>
                         <input type="number" class="form-control text_width" min="1" max="8" id="beds" name="beds" @click="searchApartments()" v-model="beds">
-                        <span class="input-group-text">Bagni</span>
-                        <input type="number" class="form-control text_width" min="1" max="8" id="bathrooms" name="bathrooms" @click="searchApartments()" v-model="bathrooms">
+                        <span class="input-group-text d-none d-md-inline">Bagni</span>
+                        <input type="number" class="form-control text_width d-none d-md-inline" min="1" max="8" id="bathrooms" name="bathrooms" @click="searchApartments()" v-model="bathrooms">
                     </div>
 
                     <div class="filters border rounded" v-if="showModal">
@@ -117,12 +117,12 @@ export default {
                             <hr>
                             <!-- body filtri -->
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-lg-6">
                                     <h3>Filtra il raggio dei km</h3>
                                     <label for="distance" class="form-label">Raggio: {{ distance }}km</label>
                                     <input type="range" class="form-range" min="0" max="40" step="1" id="distance" name="distance" v-model="distance">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-lg-6">
                                 </div>
                                 <hr>
                                 <div class="col-12">
@@ -238,6 +238,10 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
+
+        @media only screen and (max-width: 991px) {
+            width: 95vw;
+        }
     }
     .input-group-text.text_width{
         width: 20px;

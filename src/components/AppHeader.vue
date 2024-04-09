@@ -16,7 +16,7 @@ export default {
 
 <template lang="">
 
-  <header>
+  <header class="shadow-sm">
     <div>
       <router-link :to="{name:`home`}" @click="clickIndex=0" ><img class="w-75" src="../assets/logo.png" alt=""></router-link>
     </div>

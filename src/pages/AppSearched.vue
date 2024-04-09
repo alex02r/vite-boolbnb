@@ -9,6 +9,7 @@ export default {
     data() {
         return {
             store,
+            sponsor: true,
             apartments: [],
             search_address: '',
             list_complete: [],
@@ -37,6 +38,7 @@ export default {
         //funzione che esegue la ricerca degli partments
         async searchApartments() {
             try {
+                this.sponsor = false
                 //eseguiamo la chimata API 
                 const { data } = await axios.get(`${store.baseUrl}/api/search`,
                     {
@@ -49,7 +51,7 @@ export default {
                             services: this.services,
                         }
                     });
-                this.apartments = data.apartments
+                    this.apartments = data.apartments
             } catch (error) {
                 console.error(error);
             }
@@ -189,15 +191,18 @@ export default {
             </div>
         </div>
         <div class="row row-gap-4">
-            <div v-if="apartments.length == 0" class="col-12 text-center">
-                <h2 class='mt-2 mb-5'>Appartamenti sponsorizzati </h2>
+            <div v-if="sponsor" class="col-12 text-center">
+                <h2 class='mt-2 mb-5'>Appartamenti in primo piano </h2>
                 <div class="row row-gap-4">
-                <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
+                    <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment"  ></AppApartment>
                 </div>
             </div>
             <div class="col-12" v-if="apartments.length > 0">
                 <h6>Sono stati trovati ({{ apartments.length }} risultati)</h6>
                 <hr>
+            </div>
+            <div class="col-12 text-center" v-else>
+                <h2>Nessun risultato trovato</h2>
             </div>
             <AppApartment v-for="(apartment, index) in apartments" :key="index" :app="apartment"></AppApartment>
         </div>

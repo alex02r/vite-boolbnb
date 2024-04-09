@@ -206,7 +206,7 @@ export default {
                 <h6>Sono stati trovati ({{ apartments.length }} risultati)</h6>
                 <hr>
             </div>
-            <div class="col-12 text-center" v-else>
+            <div class="col-12 text-center" v-else-if="!sponsor && !loader">
                 <h2>Nessun risultato trovato</h2>
             </div>
             <div class="col-12" v-if="loader">

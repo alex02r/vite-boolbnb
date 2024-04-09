@@ -49,7 +49,7 @@ export default {
             <div class="col-12 text-center mb-5">
                 <h1 class="fw-bold">Appartamenti in primo piano</h1>
                 <h4 v-if="sponsorApartments.length == 0 ">Non ci sono appartamenti consigliati </h4>
-            <div class="row row-gap-4">
+            <div class="row justify-content-center row-gap-4">
                 <AppApartment v-for="(apartment, index) in sponsorApartments" :key="index" :app="apartment" ></AppApartment>
             </div>
 
